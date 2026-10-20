@@ -1,0 +1,11 @@
+# Data stays out of git (backed up on Google Drive)
+data/raw/
+data/processed/
+*.h5ad
+*.h5
+
+# Python
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+*.pyc
