@@ -24,10 +24,14 @@ Key references: Squidpy, GeneGPT, ChatSpatial, SpatialBench (PDFs in Drive `01_p
 - Git repo: the team monorepo https://github.com/amarcalainm-oss/SpaCe-Mel_DC9, cloned at
   `C:\TECNUN_LOCAL_MSI\Space-MEL`. Aitor's part is **this folder, `spatial-reasoning/`**; the other top-level
   entries (`app`, `shared`, `multimodal-retrieval`, ...) belong to the wider team. Don't change them unless asked.
+- Work is split into numbered **stage folders**, each with its own `notebooks/` and `results/`:
+  `01_data_exploration/` (done), then planned `02_spatial_operations/`, `03_llm_reasoning/`.
+  Notebooks find the project root by looking upwards for `pyproject.toml`.
+- Shared by all stages, at this level: the environment, `data/`, `src/space_mel/` (reusable code — anything a
+  later stage needs goes here, not inside a stage folder), `docs/`, `scripts/`.
 - `data/raw/<GSE>/` – GEO downloads (gitignored). `files/` has the extracted files, `download/` the archives.
 - `data/processed/` – AnnData `.h5ad` files we build (gitignored).
-- `notebooks/` – exploration. `src/` – reusable code. `scripts/` – one-off utilities (e.g. download).
-- `results/` – figures and tables. `docs/` – notes, including `docs/datasets.md` (read it before touching data).
+- `docs/datasets.md` – read it before touching data.
 - Google Drive (`G:\Mi unidad\TECNUN 2026-27\Alumno_Interno`) holds only data backups, papers and slides.
   Code lives here and will move to GitHub.
 
@@ -39,14 +43,14 @@ Key references: Squidpy, GeneGPT, ChatSpatial, SpatialBench (PDFs in Drive `01_p
   (Select Kernel → Jupyter Kernel…); the interpreter itself shows as `space-mel`. `.vscode/settings.json` makes it the default.
 - Notebooks are committed **without outputs** (nbstripout git filter, set up in `.gitattributes`; the filter
   config lives in `.git/config`, so re-run `.venv\Scripts\nbstripout.exe --install --attributes .gitattributes`
-  after a fresh clone). Local notebooks keep their outputs; key figures go to `results/` as PNG.
+  after a fresh clone). Local notebooks keep their outputs; key figures go to the stage's `results/` as PNG.
 - `src/space_mel/io.py` has `load_visium()`, which rebuilds a GEO-flattened Visium sample into the Space Ranger
   layout and loads it with `squidpy.read.visium`.
 
 ## Progress
 
-- `notebooks/01_explore_GSE316760.ipynb` – first exploration (units, QC, markers, clusters); outputs in
-  `results/01_GSE316760/`, AnnData in `data/processed/GSE316760_{mel2,mel3}.h5ad`.
+- `01_data_exploration/notebooks/01_explore_GSE316760.ipynb` – first exploration (units, QC, markers, clusters);
+  figures in `01_data_exploration/results/01_GSE316760/`, AnnData in `data/processed/GSE316760_{mel2,mel3}.h5ad`.
 
 ## Conventions
 
