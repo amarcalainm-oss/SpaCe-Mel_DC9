@@ -13,10 +13,11 @@ The work is organised in numbered **stage folders**; everything shared by all st
 
 | Path | What |
 |---|---|
-| `01_data_exploration/` | **Stage 1.** Exploring the Visium data with Scanpy/Squidpy |
-| ↳ `notebooks/01_explore_GSE316760.ipynb` | Matrices, metadata, images, coordinate units, QC, markers, clusters |
-| ↳ `results/01_GSE316760/` | Figures from that notebook |
-| `src/space_mel/` | Shared code. `io.py`: `load_visium()` loads a GEO Visium sample with Squidpy |
+| `01_data_exploration/` | **Stage 1.** Exploring the four Visium datasets with Scanpy/Squidpy |
+| ↳ `notebooks/0X_explore_<GSE>.ipynb` | One notebook per dataset: matrices, metadata, images, coordinate units, QC, markers, clusters |
+| ↳ `docs/` | **Plain-language guides**: `00_concepts.md` (Visium, AnnData, QC, clustering, markers) and one guide per dataset explaining what was done and how to interpret it |
+| ↳ `results/<GSE>/` | Figures from each notebook |
+| `src/space_mel/` | Shared code. `io.py`: loading GEO Visium samples (also patient-split and image-less ones) and GEO metadata; `spatial.py`: pixel → µm conversion |
 | `docs/datasets.md` | The 10x Visium datasets (GEO), their quirks, and how to convert coordinates to µm |
 | `scripts/download_data.ps1` | Downloads the GEO datasets (resumable) |
 | `data/` | Raw and processed data (not in git) |

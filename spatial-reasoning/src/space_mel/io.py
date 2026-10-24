@@ -88,9 +88,83 @@ def assemble_visium(files_dir: str | Path, prefix: str, out_dir: str | Path) -> 
     return out_dir, "matrix.mtx.gz"
 
 
-def load_visium(files_dir: str | Path, prefix: str, out_dir: str | Path, library_id: str) -> AnnData:
-    """Assemble a GEO Visium sample (if needed) and load it with squidpy."""
+def load_visium(
+    files_dir: str | Path,
+    prefix: str,
+    out_dir: str | Path,
+    library_id: str,
+    in_tissue_only: bool = False,
+) -> AnnData:
+    """Assemble a GEO Visium sample (if needed) and load it with squidpy.
+
+    Set ``in_tissue_only=True`` when the matrix also contains spots outside this sample's tissue, e.g. in
+    GSE298774, where patients sharing a capture area each come with the whole-slide matrix and only their own
+    ``tissue_positions.csv`` marks which spots are theirs (``in_tissue == 1``).
+    """
     sample_dir, counts_file = assemble_visium(files_dir, prefix, out_dir)
     adata = sq.read.visium(sample_dir, counts_file=counts_file, library_id=library_id)
     adata.var_names_make_unique()
+    if in_tissue_only:
+        adata = adata[adata.obs["in_tissue"] == 1].copy()
+    return adata
+
+
+def read_series_matrix(path: str | Path) -> "pd.DataFrame":
+    """Sample metadata from a GEO ``*_series_matrix.txt.gz`` file: one row per sample, one column per field.
+
+    Repeated fields (e.g. several ``!Sample_data_processing`` lines) get numbered: ``data_processing_2``, ...
+    """
+    import csv
+
+    import pandas as pd
+
+    fields: dict[str, list[str]] = {}
+    with gzip.open(path, "rt", encoding="utf-8") as h:
+        for row in csv.reader(h, delimiter="\t"):
+            if not row or not row[0].startswith("!Sample_"):
+                continue
+            key = row[0].removeprefix("!Sample_")
+            name, i = key, 1
+            while name in fields:
+                i += 1
+                name = f"{key}_{i}"
+            fields[name] = row[1:]
+    return pd.DataFrame(fields).set_index("title")
+
+
+def load_visium_without_images(
+    matrix_tar: str | Path,
+    reference_positions: str | Path,
+    out_dir: str | Path,
+    library_id: str,
+) -> AnnData:
+    """Load a Visium count matrix that comes without spatial files (e.g. GSE221390) and recover spot positions.
+
+    Every Visium slide of the same version uses the same barcode -> grid-position layout, so the
+    ``tissue_positions.csv`` of another sample on the same slide version (``reference_positions``) tells us
+    ``array_row`` / ``array_col`` for each barcode. There is no image, so ``obsm["spatial"]`` holds positions in
+    **micrometres** computed from the grid (see ``space_mel.spatial.grid_to_um``), not pixels.
+    """
+    import tarfile
+
+    import pandas as pd
+    import scanpy as sc
+
+    from space_mel.spatial import grid_to_um
+
+    out_dir = Path(out_dir)
+    if not (out_dir / "matrix.mtx.gz").exists():
+        out_dir.mkdir(parents=True, exist_ok=True)
+        with tarfile.open(matrix_tar) as tar:
+            tar.extractall(out_dir, filter="data")
+    adata = sc.read_10x_mtx(out_dir)
+    adata.var_names_make_unique()
+
+    ref = pd.read_csv(reference_positions, index_col=0)
+    missing = adata.obs_names.difference(ref.index)
+    if len(missing):
+        raise ValueError(f"{len(missing)} barcodes not in the reference grid; is it the same slide version?")
+    adata.obs[["array_row", "array_col"]] = ref.loc[adata.obs_names, ["array_row", "array_col"]].values
+    adata.obsm["spatial"] = grid_to_um(adata.obs["array_row"], adata.obs["array_col"])
+    adata.uns["spatial"] = {library_id: {"metadata": {"coordinates": "micrometres from the Visium grid, no image"}}}
     return adata
