@@ -56,4 +56,7 @@ Key references: Squidpy, GeneGPT, ChatSpatial, SpatialBench (PDFs in Drive `01_p
 
 - Python with scanpy + squidpy. Keep spatial distances in micrometres (see `docs/datasets.md`).
 - Never modify files in `data/raw/`. Write derived data to `data/processed/`.
+- Git commits and PRs: **no Claude attribution** (no `Co-Authored-By: Claude` trailer, no "Generated with
+  Claude Code" line). Aitor doesn't want Claude listed as a contributor on GitHub. Keep this CLAUDE.md in the
+  repo until the project ends.
 - Aitor is new to Claude Code: explain what you're doing and why, in plain terms.
