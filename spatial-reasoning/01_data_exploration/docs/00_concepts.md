@@ -181,8 +181,7 @@ Then, to **interpret** each cluster:
   Reading the top 8 and comparing with the marker table lets us name the cluster.
 
 **Caution:** a cluster is not a cell type. It is a group of spots (cell mixtures) with similar profiles. The labels
-we propose ("tumour", "stroma", "immune") are **hypotheses** to be validated with the H&E image, the literature and
-Myles. Also, clusters are computed **per sample**: cluster 3 in one sample has nothing to do with cluster 3 in
+we propose ("tumour", "stroma", "immune") are **hypotheses** to be validated with the H&E image and the literature. Also, clusters are computed **per sample**: cluster 3 in one sample has nothing to do with cluster 3 in
 another.
 
 ---
