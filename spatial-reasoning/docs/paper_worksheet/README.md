@@ -1,6 +1,6 @@
 # Paper worksheet: Kreuger et al. 2026
 
-Answers to Part I of the SPACE-MEL student instructions (Myles, 28 Oct 2026): the common worksheet on the
+Answers to Part I of the SPACE-MEL student instructions: the common worksheet on the
 reference paper and the novelty audit.
 
 **Paper:** Kreuger et al. (2026). *Cancer Research* 86(17):4400–4413.
@@ -11,15 +11,6 @@ Zenodo [15582615](https://zenodo.org/records/15582615) (IMC).
 
 **Author:** Aitor · **Status:** draft
 
-## How to fill this in
-
-- Answer in your own words, not copied from the abstract.
-- Cite the source of every claim: figure/panel (`Fig. 2A`), table (`Table S1`), section (`Methods: Deconvolution`)
-  or script (`NevusMelanomaVisium/<file>.R`).
-- Keep what the paper *shows* separate from what it *infers* and from what is still *open*.
-- Mark anything not yet checked with `[check Supp]` or `[check code]`.
-
----
 
 ## Q1. What are the paper's primary biological research question and its rationale?
 
