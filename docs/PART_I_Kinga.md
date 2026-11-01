@@ -1,3 +1,5 @@
+## Questions
+
 1. What are the paper's primary biological research question and its rationale?
 State what the authors wanted to learn about nevus-to-melanoma transition; distinguish biological aims from methods.
 
@@ -62,7 +64,7 @@ Address cross-sectional sampling (not longitudinal proof of progression), spot-l
 
 One of the biggest limitations of the study is that each sample was only taken at one specific point of time so temporal changes in nevus-melanoma transitions cannot be observed directly. The paper shows that nevus tissue and melanoma tissue have different gene expression patterns, and that they are spatially adjacent and from that the authors infer that nevus is in the process of becoming melanoma but this cannot be backed up by temporal changes in the tissue. Also, since each capture is unique to one patient some of the information might just be due to one patient's specific biology/anatomy/immune history/etc. so some findings may be due to the fact that one or two samples reflected similar information. The study mainly focuses on overall changes in the general patterns, and does not investigate large sample sets for more specific changes. Moreover, the method only provides spot-level and does not provide single-cell resolution (although to address this unsupervised computational techniques were applied). Other limitations include the usage of probes (limiting the ability to investigate novel transcripts), the lack of integration with DNA sequencing and the fact that for spot label annotation both pathologists and deconvolution topic assignment introduce a grade of uncertainty. 
 
-Novelty audit
+## Novelty audit
 
 | Previously studied area | Evidence in paper/code | Novel question |
 |---|---|---|
