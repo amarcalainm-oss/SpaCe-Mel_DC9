@@ -18,11 +18,8 @@ Zenodo [15582615](https://zenodo.org/records/15582615) (IMC).
 
 **Answer:**
 
-_…_
+-They wanted to see what changed transcriptionally and in the tissue when a benign nevus progressed to melanoma. Previous comparisons only used RNA-seq, but they added the spatial component. Nevus associated melanomas give side by side benign and malignant tissue within the same patient conditions, making this comparison possible. 
 
-**Evidence:**
-
-- _…_
 
 ---
 
@@ -32,11 +29,9 @@ _…_
 
 **Answer:**
 
-_…_
+Tissues with nevus and melanoma components were studied, and also with surrounding normal skin structures. The unit of independence are each patients (lesions, tissues), since spots inside them are spatially correlated. Therefore spot counts should not be treated as independent. 
 
-**Evidence:**
 
-- _…_
 
 ---
 
@@ -46,7 +41,7 @@ _…_
 
 **Answer:**
 
-_…_
+Visium measures RNA in each spot, but each spot mixes multiple cells. The cell composition of a spot can be estimated with deconvolution, but this is an inference from the expression on the spot, not a direct measurement. That is why the authors added imaging mass cytometry (IMC), which measures proteins at single-cell resolution, so they could check the cell identities with protein evidence.
 
 | Claim | RNA (Visium) | Protein (IMC / IHC / proteomics) | Source |
 |---|---|---|---|
@@ -64,11 +59,8 @@ _…_
 
 **Answer:**
 
-_…_
+First, an expert selected lesions with clear nevus/melanoma components. At spot level, deconvolution was used (15 topics) and each spot was assigned to its most frequent topic. Per-spot labels are not public, and if they are reconstucted they can´t be used for validation. 
 
-**Are per-spot labels public?** _yes / no — where I looked:_
-
-- _…_
 
 **Evidence:**
 
