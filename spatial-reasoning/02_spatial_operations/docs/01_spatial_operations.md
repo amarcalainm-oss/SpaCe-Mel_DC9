@@ -1,6 +1,6 @@
 # Stage 2 · Spatial operations
 
-The first three spatial operations of the project (point 4 of Myles's week-2 instructions): what they do, the rules
+The first three spatial operations of the project: what they do, the rules
 they follow, how they are tested, and one real example on patient A24.
 
 | Where | What |
@@ -112,7 +112,4 @@ response spots.
   missing tissue.
 - The threshold PRAME > 1.5 and the 150 µm radius are choices, not facts; other values give other numbers.
 
-## Next
 
-These operations are the building blocks the LLM will choose from. The benchmark questions (point 5) will be
-answered with them: each reference answer = one or more of these operations with fixed parameters.
