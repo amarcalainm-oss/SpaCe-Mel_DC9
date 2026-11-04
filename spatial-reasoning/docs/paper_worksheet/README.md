@@ -174,12 +174,13 @@ All of this uses the labels made from expression, not labels from a pathologist.
 
 - **Evidence in paper/code:** the gene differences between nevus and melanoma (Fig. 2), the pathways and cell division (Fig. 3A, 3C–D) and the melanocytic programmes (Fig. 3E–I). Script: DEGs_Visium_NevusTumor.md.
 - **What remains unanswered:** where in the tissue these changes happen. They compare nevus vs melanoma as two groups, without looking at the position of the spots.
-- **New question beyond repeating a known gene/program difference:** for example, are the melanoma spots that divide more at the edge of the tumour or in the centre?
-- **Why it is new, not a rerun:** it uses the position of the spots (distances in µm). Doing the same comparison with other software would not be new.
+- **New question beyond repeating a known gene difference:** for example, are the melanoma spots that divide more at the edge of the tumour or in the centre?
+  
+- **Why it is new, not a rerun:** it uses the position of the spots (distances in µm).
 
 ### Area 2: Immune composition, infiltration and spatial proximity
 
-- **Evidence in paper/code:** the immune cells estimated in the spots and the IMC images (Fig. 5), the distance of skin cells to melanoma (Fig. 4E), and in the code, which immune cells are close to the tumour (Immune_infiltration_IC1_Franken.md).
+- **Evidence in paper:** the immune cells estimated in the spots and the IMC images (Fig. 5), the distance of skin cells to melanoma (Fig. 4E), and in the code, which immune cells are close to the tumour (Immune_infiltration_IC1_Franken.md).
 - **What remains unanswered:** how far the immune cells are from the tumour, in µm and for each patient. In the code they only use one distance limit and all lesions together.
 - **What can be tested about spatial organization beyond immune abundance or existing proximity results:** the exact distance from immune regions to the tumour, if there is an empty gap between them, and how many immune spots there are around each spot.
 - **Why it is new, not a rerun:** the paper says "more immune cells near melanoma", but it doesn't measure how near or how they are placed.
@@ -187,10 +188,10 @@ All of this uses the labels made from expression, not labels from a pathologist.
 ### Area 3: Pseudotime, spatial ligand–receptor and protein-level comparisons
 
 - **Evidence in paper/code:** the "talking" cells analysis (Supp. Fig. S7, SpatialDM_ExpressionBased_withFiltering.md), pseudotime only in the code (PseudoTime_NevusTumor.md), and IMC on 9 lesions (Fig. 5).
-- **What remains unanswered:** the pseudotime is not in the paper, so it is not checked. The "talking" cells are only a guess (signal and receiver close), and they don't show where in the tissue this happens.
+- **What remains unanswered:** the pseudotime is not in the paper, so it is not checked. The "talking" cells only show where in the tissue this happens.
 - **Methodological claim or independent analysis that remains untested:** if these signals between tumour and immune cells happen mostly at the border between them.
 - **Why it is new, not a rerun:** running the same tools again would repeat their work. Asking where it happens, with distances, is a different question.
 
 ### Novelty statement
 
-The authors wanted to describe the biology of the change from nevus to melanoma. We don't want to find new biology. We want to build simple spatial tools (which spots are within a distance, how far a spot is from a region, what is around a spot), measured in µm, and check that they give the right answer on easy examples. Then an LLM should choose these tools to answer questions written in normal language, and we compare its answers with the correct ones calculated by the code. So what we add is the method and how to check it, not new biological results.
+The authors wanted to describe the biology of the change from nevus to melanoma. We want to build simple spatial tools (which spots are within a distance, how far a spot is from a region, what is around a spot), measured in µm, and check that they give the right answer on easy examples. Then an LLM should choose these tools to answer questions written in normal language, and we compare its answers with the correct ones calculated by the code. So what we add is the method and how to check it, not new biological results.
