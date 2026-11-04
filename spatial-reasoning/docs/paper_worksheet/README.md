@@ -125,11 +125,11 @@ First, an expert selected lesions with clear nevus/melanoma components. At spot 
 **Answer:**
 They found that immune cells are much denser around the melanoma than around the nevus (Figures 5A–B), with few cells inside the tumour mass. 
 
-**Macrophages:** Inside the nevus, the only immune cells are macrophages. This was seen directly with protein (IMC), using the markers CD14, CD68 and CD163 (Figure 5D, Supp. Figure S9C). Their subtype was not measured with protein, it was inferred from RNA (NNLS with a reference dataset). Inside the nevus they are mainly TREM2+ and LYVE1+ (M2-like, they calm the immune response). Near melanoma there are also CXCL10+ macrophages (M1-like, inflammatory, they attract T cells) (Figure 5C, Supp. Figure S9D).
+**Macrophages:** Inside the nevus, the only immune cells are macrophages. This was seen with protein (IMC), so it is a direct observation (Figure 5D). The type of macrophage is not seen, it is inferred from RNA: in the nevus they look like macrophages that calm the immune response, and near melanoma there are also some that cause inflammation and attract T cells (Figure 5C).
 
-**T cells:** IMC (protein) shows CD4+ (helper) and CD8+ (cytotoxic) T cells around the tumour, but very few inside it (Figures 5B, 5D). Their state is only inferred from RNA: the immune signature next to melanoma (IC1) expresses activation genes (CD69, CD38, IL2RA), genes that attract T cells (CXCL9, CXCL10) and exhaustion genes (TIGIT, HAVCR2) (Figure 5F). So the T cells seem to respond to the tumour, but they stay at the edge and get "worn out".
+**T cells:** T cells are around the tumour but very few get inside it. This was also seen with protein (Figures 5B, 5D). From RNA, they seem to be activated (reacting to the tumour) but also "exhausted", meaning they have been active for too long and work less (Figure 5F). This state is inferred, not seen with protein.
 
-Summary: observed with protein = which immune cells are there and where. Inferred from RNA = their subtype and state (M1/M2, activated, exhausted).
+So, with protein we see which immune cells are there and where. What type or state they are in comes only from RNA.
 
 
 ---
@@ -141,15 +141,14 @@ Summary: observed with protein = which immune cells are there and where. Inferre
 
 | Analysis | Done? | In the paper | In the code | What exactly was asked |
 |---|---|---|---|---|
-| Neighbourhood / distance | Yes | Fig. 4A (neighbours of fibroblasts F1/F2), Fig. 4E (keratinocytes) | DEGs_Visium_Keratinocytes.md, Immune_infiltration_IC1_Franken.md | Which spot types are next to F1/F2; distance (in pixels) from keratinocyte spots to the nearest melanoma spot; in the code only, immune cell fractions in spots within 500 of the tumour or nevus vs further away |
-| Deconvolution | Yes | Fig. 1, Methods | Deconvolute_Visium.md | Cell-type mix of each spot (STdeconvolve, 15 topics); each spot gets its main topic as label |
-| Spatial ligand–receptor | Yes | Supp. Fig. S7, Supp. Tables S9–S10 | SpatialDM_ExpressionBased_withFiltering.md | Which signal–receptor pairs are expressed in neighbouring spots, in nevus vs melanoma |
-| Pseudotime | Only in code | No | DEGsPathwaysTsoi_PseudoTimesAllSamples.md, PseudoTime_NevusTumor.md | Order spots along a nevus → melanoma path (slingshot) |
-| Other | Yes | Fig. 5 | Immune_infiltration_IC1_Franken.md | Immune cell types in immune spots (NNLS), and IMC images of immune cells and collagen |
+| Neighbourhood / distance | Yes | Fig. 4A, Fig. 4E | DEGs_Visium_Keratinocytes.md, Immune_infiltration_IC1_Franken.md | Which spots are next to each fibroblast type. How far skin cells are from the nearest melanoma spot (in pixels). In the code only: which immune cells are close to the tumour or the nevus |
+| Deconvolution | Yes | Fig. 1 | Deconvolute_Visium.md | What mix of cells is in each spot. Each spot gets a label from this |
+| Spatial ligand–receptor | Yes | Supp. Fig. S7 | SpatialDM_ExpressionBased_withFiltering.md | Which cells could be "talking" to each other, because the signal and its receiver are in nearby spots |
+| Pseudotime | Only in code | No | PseudoTime_NevusTumor.md | Order the spots from nevus to melanoma, as if it was a timeline |
 
 **Notes:**
 
-All of these use the expression-based spot labels (deconvolution), not pathologist labels. The only distances in the paper are in pixels and pooled across lesions, even though pixel size changes between capture areas. The immune proximity analysis in the code uses one fixed cutoff (500) and is not described in the main text. What has not been done: distances in µm per patient, distance as a continuous value instead of one cutoff, comparisons across patients, and how regions are arranged in the tissue (borders, gaps between tumour and immune cells).
+All of this uses the labels made from expression, not labels from a pathologist. The distances in the paper are in pixels and all lesions are put together, even if the pixel size is different between them. Nobody measured distances in µm for each patient, or how the regions are placed in the tissue (for example, if there is a gap between the tumour and the immune cells).
 
 ---
 
@@ -158,12 +157,12 @@ All of these use the expression-based spot labels (deconvolution), not pathologi
 > Address cross-sectional sampling (not longitudinal proof of progression), spot-level resolution, patient/slide
 > dependence, annotation quality and variation across samples.
 
-- **Cross-sectional sampling:** each lesion is one snapshot in time. Nevus and melanoma are seen side by side, but the transition from one to the other is inferred, not observed.
-- **Spot-level resolution:** each spot is 55 µm and mixes several cells, so cell types are estimated (deconvolution), not seen.
-- **Patient / slide dependence:** there are only 18 patients, and spots from the same patient are not independent. Some patients share a capture area, so patient and slide effects are mixed.
-- **Annotation quality:** nevus/melanoma labels come from expression (main topic per spot), were only checked visually, and are not public. So they can't be used as ground truth.
-- **Variation across samples:** data quality changes a lot between patients (median counts per spot from ~130 to ~22,000). After the paper's filter some patients keep very few spots (B8, B14, A17). There are two gene panels (~37k and ~18k genes) and different pixel sizes.
-- **Other:** A2 can't be used (no barcodes file). IMC was done only on 9 lesions and in small regions, on the next section, so it can't be matched spot by spot.
+- **Cross-sectional sampling:** each lesion is one photo in time. We see nevus and melanoma side by side, but we never see one turning into the other.
+- **Spot-level resolution:** each spot mixes several cells, so we can only estimate which cells are inside.
+- **Patient / slide dependence:** there are only 18 patients, and spots from the same patient are not independent. Some patients share the same slide.
+- **Annotation quality:** the nevus/melanoma labels come from expression, not from a pathologist, and they are not public. So they can't be used as ground truth.
+- **Variation across samples:** the quality changes a lot between patients. After the filter some patients keep very few spots (B8, B14, A17).
+- **Other:** A2 can't be used because a file is missing. IMC was only done on 9 lesions and small regions, so it can't be compared spot by spot.
 
 ---
 
@@ -175,25 +174,25 @@ All of these use the expression-based spot labels (deconvolution), not pathologi
 
 ### Area 1: Differential expression, proliferation and melanocytic programs
 
-- **Evidence in paper/code** (result, samples, method): 1,976 DEGs between nevus and melanoma spots (negative binomial, Fig. 2, Supp. Table S4; DEGs_Visium_NevusTumor.md), pathway enrichment (Fig. 3A), cell-cycle scoring (Fig. 3C–D) and melanocytic signatures (Fig. 3E–I). Melanoma spots from 12 lesions and nevus spots from 17.
-- **What remains unanswered:** where in the tissue these changes happen. The comparisons are nevus vs melanoma as groups, not by position.
-- **New question beyond repeating a known gene/program difference:** are the dividing melanoma spots at the edge of the tumour or in the centre? Does it change with distance to the nevus or to immune cells?
-- **Why it is new, not a rerun:** it uses the position of the spots (distances in µm), not only the group difference. Running the same DE with other software would not be new.
+- **Evidence in paper/code:** the gene differences between nevus and melanoma (Fig. 2), the pathways and cell division (Fig. 3A, 3C–D) and the melanocytic programmes (Fig. 3E–I). Script: DEGs_Visium_NevusTumor.md.
+- **What remains unanswered:** where in the tissue these changes happen. They compare nevus vs melanoma as two groups, without looking at the position of the spots.
+- **New question beyond repeating a known gene/program difference:** for example, are the melanoma spots that divide more at the edge of the tumour or in the centre?
+- **Why it is new, not a rerun:** it uses the position of the spots (distances in µm). Doing the same comparison with other software would not be new.
 
 ### Area 2: Immune composition, infiltration and spatial proximity
 
-- **Evidence in paper/code** (deconvolution, immune comparisons, distance analyses): immune signatures IC1/IC2 and NNLS cell types (Fig. 5A–C), IMC (Fig. 5B, 5D, 5G), keratinocyte distance to melanoma (Fig. 4E), and the immune proximity analysis with a 500 cutoff in Immune_infiltration_IC1_Franken.md.
-- **What remains unanswered:** how far immune regions are from the tumour in µm, per patient, and how this changes between patients. The code only uses one cutoff and pools the lesions.
-- **What can be tested about spatial organization beyond immune abundance or existing proximity results:** distance from immune spots to the tumour as a continuous value, whether there is a gap with no immune cells between tumour and immune cells, and the immune fraction in the neighbourhood of each spot.
-- **Why it is new, not a rerun:** the paper says "more immune cells near melanoma", but it does not measure the distances or the arrangement. We would measure them in µm, per patient and per tissue section.
+- **Evidence in paper/code:** the immune cells estimated in the spots and the IMC images (Fig. 5), the distance of skin cells to melanoma (Fig. 4E), and in the code, which immune cells are close to the tumour (Immune_infiltration_IC1_Franken.md).
+- **What remains unanswered:** how far the immune cells are from the tumour, in µm and for each patient. In the code they only use one distance limit and all lesions together.
+- **What can be tested about spatial organization beyond immune abundance or existing proximity results:** the exact distance from immune regions to the tumour, if there is an empty gap between them, and how many immune spots there are around each spot.
+- **Why it is new, not a rerun:** the paper says "more immune cells near melanoma", but it doesn't measure how near or how they are placed.
 
 ### Area 3: Pseudotime, spatial ligand–receptor and protein-level comparisons
 
-- **Evidence in paper/code** (workflow, figures, scripts, validation data): SpatialDM ligand–receptor pairs (Supp. Fig. S7, Supp. Tables S9–S10; SpatialDM_ExpressionBased_withFiltering.md), pseudotime only in the code (slingshot; PseudoTime_NevusTumor.md), IMC on 9 lesions (Fig. 5; Zenodo 15582615).
-- **What remains unanswered:** pseudotime is not reported or validated in the paper. Ligand–receptor pairs are only co-expression, not proven communication, and it is not shown where in the tissue they are.
-- **Methodological claim or independent analysis that remains untested:** whether the melanoma–immune ligand–receptor pairs are concentrated at the border between tumour and immune cells.
-- **Why it is new, not a rerun:** rerunning SpatialDM or slingshot would repeat their work. Asking where the pairs are, measured in µm from the tumour border, is a different question.
+- **Evidence in paper/code:** the "talking" cells analysis (Supp. Fig. S7, SpatialDM_ExpressionBased_withFiltering.md), pseudotime only in the code (PseudoTime_NevusTumor.md), and IMC on 9 lesions (Fig. 5).
+- **What remains unanswered:** the pseudotime is not in the paper, so it is not checked. The "talking" cells are only a guess (signal and receiver close), and they don't show where in the tissue this happens.
+- **Methodological claim or independent analysis that remains untested:** if these signals between tumour and immune cells happen mostly at the border between them.
+- **Why it is new, not a rerun:** running the same tools again would repeat their work. Asking where it happens, with distances, is a different question.
 
 ### Novelty statement
 
-The authors did a fixed set of biological analyses to describe the nevus-to-melanoma transition. Our project does not try to find new biology. We build simple spatial operations (spots within a radius, distance to a region, neighbourhood fraction), in µm and per tissue section, and test them on examples with known answers. Then an LLM should pick and combine these operations to answer natural-language spatial questions, and its answers are compared with reference answers computed with code. So the contribution is the method and how it is evaluated, not new biological findings. We reuse their data and QC filter, but not their analyses.
+The authors wanted to describe the biology of the change from nevus to melanoma. We don't want to find new biology. We want to build simple spatial tools (which spots are within a distance, how far a spot is from a region, what is around a spot), measured in µm, and check that they give the right answer on easy examples. Then an LLM should choose these tools to answer questions written in normal language, and we compare its answers with the correct ones calculated by the code. So what we add is the method and how to check it, not new biological results.
