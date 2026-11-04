@@ -122,15 +122,9 @@ First, an expert selected lesions with clear nevus/melanoma components. At spot 
 > Differentiate observation, inferred cell identity and validated protein marker evidence; mention macrophage and
 > T-cell patterns.
 
-| | Observation | Inferred cell identity | Validated protein marker evidence | Source |
-|---|---|---|---|---|
-| Macrophages | | | | |
-| T cells | | | | |
-| Other | | | | |
-
 **Answer:**
+They found that immune cells are much denser around the melanoma than around the nevus (Figures 5A–B), with few cells inside the tumour mass. 
 
-_…_
 
 ---
 
