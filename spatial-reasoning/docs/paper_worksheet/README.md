@@ -159,11 +159,9 @@ All of this uses the labels made from expression, not labels from a pathologist.
 
 - **Cross-sectional sampling:** each lesion is one photo in time. We see nevus and melanoma side by side, but we never see one turning into the other.
 - **Spot-level resolution:** each spot mixes several cells, so we can only estimate which cells are inside.
-- **Patient / slide dependence:** there are only 18 patients, and spots from the same patient are not independent. Some patients share the same slide.
-- **Annotation quality:** the nevus/melanoma labels come from expression, not from a pathologist, and they are not public. So they can't be used as ground truth.
+- **Patient / slide dependence:** there are only 18 patients, and spots from the same patient are not independent.
+- **Annotation quality:** the nevus/melanoma labels come from expression, not from a pathologist. So they can't be used as ground truth.
 - **Variation across samples:** the quality changes a lot between patients. After the filter some patients keep very few spots (B8, B14, A17).
-- **Other:** A2 can't be used because a file is missing. IMC was only done on 9 lesions and small regions, so it can't be compared spot by spot.
-
 ---
 
 ## Q10. Novelty audit: do not redo established results
