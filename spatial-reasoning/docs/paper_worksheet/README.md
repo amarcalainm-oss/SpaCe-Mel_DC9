@@ -76,7 +76,11 @@ First, an expert selected lesions with clear nevus/melanoma components. At spot 
 - Normalization: SCTransform, parameters unknown
 - Cell-type deconvolution: STdeconvolve. With fitLDA choose from k=10:20, chosen k=15. Topics name given by correlation with signatures.
 - Differential expression: negative binomial + cell type fraction as a latent variable.
-- Spatial: we use neighbouring spots of a type, and define distance as Euclidean distance in pixels to the nearest melanoma spot. 
+- Spatial: they use neighbouring spots of a type, and define distance as Euclidean distance in pixels to the nearest melanoma spot.
+- Immune infiltration: NNLS with the Franken single-cell reference.
+- Ligand–receptor: SpatialDM, run per patient, keeping pairs found in ≥ 5 patients, annotated with CellChatDB. Script: SpatialDM_ExpressionBased_withFiltering.md.
+- Pseudotime: slingshot (PCA first)
+  
 
 
 ---
@@ -86,23 +90,25 @@ First, an expert selected lesions with clear nevus/melanoma components. At spot 
 > For each, give the evidence and figure/table number. Consider proliferation/metabolic adaptation, melanocytic
 > programs and microenvironment remodeling.
 
-### Finding 1: _…_
+### Finding 1:
 
-- **What they found:** _…_
+- **What they found:** Proliferation with metabolic adaptation: melanoma cells seem to divide more, and they switch on the "machinery" needed to support that growth.
+- **Evidence:**
+  - Pathway enrichment (RNA). The genes that are higher in melanoma were grouped into Reactome pathways (lists of genes that work on the same biological task). The following groups were up-represented in melanoma: cell-cycle transition, metabolism and protein quality control.
+  - Cell-cycle scoring (RNA). In spots with > 50 % nevus or melanoma, a Seurat function assigned each spot a cell-cycle phase: G1 (not dividing), S (copying DNA) or G2/M (about to divide), based on phase-specific genes 
+- **Figure/table:** Figures 3A and 3C–D.
+
+### Finding 2: 
+
+- **What they found:** Melanocytic programmes
 - **Evidence:** _…_
-- **Figure/table:** _…_
-
-### Finding 2: _…_
-
-- **What they found:** _…_
-- **Evidence:** _…_
-- **Figure/table:** _…_
+- **Figure/table:** Figures 3E–I
 
 ### Finding 3: _…_
 
 - **What they found:** _…_
 - **Evidence:** _…_
-- **Figure/table:** _…_
+- **Figure/table:** Figures 3A and 5A–G
 
 ---
 
