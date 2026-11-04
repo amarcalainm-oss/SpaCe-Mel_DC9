@@ -100,14 +100,19 @@ First, an expert selected lesions with clear nevus/melanoma components. At spot 
 
 ### Finding 2: 
 
-- **What they found:** Melanocytic programmes
-- **Evidence:** _…_
-- **Figure/table:** Figures 3E–I
+- **What they found:** Melanocytic programmes: melanoma cells look more like mature melanocytes (pigment-producing cells), while nevus cells look more neural crest-like (a less mature state). This happens without an increase in MITF, the main gene controlling melanocyte identity.
+- **Evidence:**
+    - Pathway enrichment (RNA). Pathways controlled by MITF were up in melanoma, including its target genes TYR and PMEL (pigment production), CDK2 (cell division) and KIT (a growth-signal receptor).
+    - Lineage signature scores (RNA). Each spot was scored with published gene lists for melanocyte states. Melanoma spots scored higher on the melanocytic signature, and nevus spots higher on the neural crest-like/transitory signature. MITF itself was not higher in melanoma.
+- **Figure/table:** Figures 3A and 3E–I
 
-### Finding 3: _…_
+### Finding 3: 
 
-- **What they found:** _…_
-- **Evidence:** _…_
+- **What they found:** Microenvironment remodelling: the tissue around melanoma changes, with more antigen presentation (cells showing protein fragments to T cells), a rebuilt extracellular matrix (ECM, the protein network between cells) and more immune cells, which are activated but also show signs of "being exhausted".
+- **Evidence:**
+    - Antigen presentation and ECM (RNA). Genes that load protein fragments for T cells (TAP1, TAP2, B2M) were up in melanoma. ECM genes changed, and enzymes that break down the ECM (MMPs, cathepsins) went up.
+    - Immune cells (RNA + protein). The immune signature IC1 sits next to melanoma and expresses activation and exhaustion genes (RNA). IMC confirmed more immune cells around melanoma than around nevus, few inside the tumour, and denser collagen at melanoma sites (protein).
+      
 - **Figure/table:** Figures 3A and 5A–G
 
 ---
