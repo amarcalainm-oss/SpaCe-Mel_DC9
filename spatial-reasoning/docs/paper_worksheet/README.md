@@ -41,15 +41,20 @@ Tissues with nevus and melanoma components were studied, and also with surroundi
 
 **Answer:**
 
-Visium measures RNA in each spot, but each spot mixes multiple cells. The cell composition of a spot can be estimated with deconvolution, but this is an inference from the expression on the spot, not a direct measurement. That is why the authors added imaging mass cytometry (IMC), which measures proteins at single-cell resolution, so they could check the cell identities with protein evidence.
+Visium measures RNA in each spot, but each spot mixes multiple cells. The cell composition of a spot can be estimated with deconvolution, but this is an inference from the expression on the spot, not a direct measurement. That is why the authors added imaging mass cytometry (IMC), which measures proteins at single-cell resolution, so they could check the cell identities with protein evidence. With RNA we measure the expresion of ~18000 genes in each 55 µm spot, whereas IMC measures 43 proteins at single cell resolution. 
 
-| Claim | RNA (Visium) | Protein (IMC / IHC / proteomics) | Source |
-|---|---|---|---|
-| _…_ | | | |
+Claims for RNA only:
+- The nevus-melanoma gene differences (expression)
+- Higher proliferation: melanoma cells seem to divide more
+- The nevus looked more "immature" (neural crest-like) and melanoma more "mature" (melanocytic).
+- Extracellular matrix (ECM) remodelling on melanoma
+- Ligand-receptor pairs
 
-**Evidence:**
+Claims for IMC (protein):
+- More immune cells around melanoma and less inside the tumor
+- Macrophages, only immune cells inside the nevus
+- More or denser collagen at melanoma areas
 
-- _…_
 
 ---
 
@@ -62,31 +67,17 @@ Visium measures RNA in each spot, but each spot mixes multiple cells. The cell c
 First, an expert selected lesions with clear nevus/melanoma components. At spot level, deconvolution was used (15 topics) and each spot was assigned to its most frequent topic. Per-spot labels are not public, and if they are reconstucted they can´t be used for validation. 
 
 
-**Evidence:**
-
-- _…_
-
----
-
 ## Q5. What preprocessing and analytical methods did the authors use?
 
 > Include filtering, normalization, cell-type deconvolution, differential expression, immune infiltration, spatial
 > analyses, pseudotime and ligand-receptor analysis where applicable. Reference scripts.
 
-| Step | Method / tool | Key settings | Paper section | Script |
-|---|---|---|---|---|
-| Filtering | | | | |
-| Normalization | | | | |
-| Cell-type deconvolution | | | | |
-| Differential expression | | | | |
-| Immune infiltration | | | | |
-| Spatial analyses | | | | |
-| Pseudotime | | | | |
-| Ligand–receptor | | | | |
+- Filtering: keep spots with >500 genes and <30% mitochondrial counts
+- Normalization: SCTransform, parameters unknown
+- Cell-type deconvolution: STdeconvolve. With fitLDA choose from k=10:20, chosen k=15. Topics name given by correlation with signatures.
+- Differential expression: negative binomial + cell type fraction as a latent variable.
+- Spatial: we use neighbouring spots of a type, and define distance as Euclidean distance in pixels to the nearest melanoma spot. 
 
-**Notes:**
-
-_…_
 
 ---
 
