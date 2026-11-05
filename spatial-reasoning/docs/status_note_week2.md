@@ -24,7 +24,7 @@ Student: Aitor · Spatial reasoning (`spatial-reasoning/`)
 | Where QC removes spots | Maps (A24 1.7%, B4 15.5%, A16 46.7% removed); removed spots are mostly blood-, fat- and dermis-like clusters; melanocytic-like clusters lose 0% | `01_data_exploration/results/GSE298774/qc_failed_spots.png`, `qc_removed_by_cluster.png` |
 | A24 clustering after filtering | Most clusters keep ≥ 83% of their spots together; one cluster (T-cell response genes) splits | `clusters_A24_before_after.png` + table in notebook 03 |
 | Spatial operations work as specified | 21/21 tests pass (boundary, no neighbours, the spot itself, two sections, wrong inputs); the boundary test fails if the rounding tolerance is removed | `src/space_mel/operations.py`, `tests/test_operations.py` (`.venv\Scripts\python.exe -m pytest`) |
-| Real coordinates need care | Touching spots in A24 are 99.8–100.6 µm apart, so r = 100 µm gives most spots 1 neighbour instead of 6; r = 150 µm gives 6 to 90% | `02_spatial_operations/results/A24_neighbour_distances.png`, guide `02_spatial_operations/docs/01_spatial_operations.md` |
+| Real coordinates need care | Touching spots in A24 are 99.8–101.2 µm apart, so r = 100 µm gives most spots 1 neighbour instead of 6; r = 150 µm gives 6 to 90% | `02_spatial_operations/results/A24_neighbour_distances.png`, guide `02_spatial_operations/docs/01_spatial_operations.md` |
 | Benchmark reference answers | 14 answers (8 toy grid, 6 A24); toy answers checked by counting spots, A24 answers re-checked with a separate brute-force calculation (all match) | `02_spatial_operations/benchmark/benchmark.csv`, `notebooks/02_benchmark.ipynb`, guide `docs/02_benchmark.md` |
 
 ## 3. What remains unresolved
