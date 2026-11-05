@@ -1,7 +1,6 @@
 # Status note · Week 2 (2–8 November 2026)
 
 | | |
-|---|---|
 | Student | Aitor · Spatial reasoning (`spatial-reasoning/`) |
 
 | Deadline | **Sunday 8 November 2026, 22:00 (Spain time)** |
