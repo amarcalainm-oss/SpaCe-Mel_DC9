@@ -48,8 +48,8 @@ The answers are computed with the **tested operations** (`src/space_mel/operatio
 | B02 | T1 | List the neighbours of spot r0c0 that are at most 100 µm away. | `spots_within_radius` | same as B01 |
 | B03 | T2 | Which spots touch spot AACTGCCGCTACATCT-1? | `spots_within_radius` | 6 spots (listed below) |
 | B04 | T2 | Which spots are directly next to spot AACTGCCGCTACATCT-1? | `spots_within_radius` | same as B03 |
-| B05 | T3 | How far is spot r2c4 from region R? | `distance_to_region` | 435.9 µm |
-| B06 | T3 | What is the distance between spot r2c4 and the closest spot of region R? | `distance_to_region` | 435.9 µm |
+| B05 | T3 | How far is spot r-2c2 from region R? | `distance_to_region` | 200.0 µm |
+| B06 | T3 | What is the distance between spot r-2c2 and the closest spot of region R? | `distance_to_region` | 200.0 µm |
 | B07 | T4 | How far is spot GACGCTCGAGGAGTGC-1 from the nearest PRAME-high spot? | `distance_to_region` | 265.3 µm |
 | B08 | T4 | What is the distance from spot GACGCTCGAGGAGTGC-1 to the PRAME-high spots? | `distance_to_region` | 265.3 µm |
 | B09 | T5 | What fraction of the neighbours of spot r0c0 (within 100 µm) are in category C? | `neighbourhood_fraction` | 4/6 = 0.67 |
@@ -119,14 +119,15 @@ spots_within_radius(toy, "alone", 100)
 
 The operation returns a distance for **every** spot; the answer is the value of the spot the question asks about.
 
-**T3** (B05, B06) · distance from r2c4 to region R (toy)
+**T3** (B05, B06) · distance from r-2c2 to region R (toy)
 ```python
-distance_to_region(toy, R)["r2c4"]
+distance_to_region(toy, R)["r-2c2"]
 ```
 ```
-435.9
+200.0
 ```
-Check by hand: the nearest R spot is r-1c-3, 350 µm across and 259.8 µm down → √(350² + 259.8²) = 435.9 µm.
+Check in the figure: r-2c2 is in the top row, and the nearest R spot (r-2c-2) is two spots to its left in the same
+row. Each step is 100 µm, so 2 × 100 = 200 µm.
 
 **T4** (B07, B08) · distance from spot Y to the nearest PRAME-high spot (A24)
 ```python
@@ -176,13 +177,13 @@ fraction         0.166667
 
 A reference answer is only useful if it is right, so every answer was checked a second, independent way.
 
-**Toy grid (T1, T3, T5, T7, T8): checked mathematically, without code.** The toy grid is small and regular (spots 100 µm
-apart), so the answers can be worked out easily:
+**Toy grid (T1, T3, T5, T7, T8): checked mathematically, without code.** The toy grid is small and regular
+(each step between touching spots is 100 µm), so the answers can be worked out easily by counting spots:
 
-- T1: the 6 spots around r0c0 are exactly 100 µm away, so with "within 100 µm" all 6 count.
-- T3: Pythagoras, as shown above: √(350² + 259.8²) = 435.9 µm.
-- T5: count the orange rings around r0c0 in the figure: 4 of its 6 neighbours.
-- T7: the isolated spot is 300 µm from the nearest spot, so nothing is within 100 µm.
+- T1: r0c0 has 6 touching spots, each one step (100 µm) away, so with "within 100 µm" all 6 count.
+- T3: from r-2c2, the nearest R spot is two steps to the left in the same row: 2 × 100 = 200 µm.
+- T5: count the orange rings around r0c0 in the right figure: 4 of its 6 touching spots.
+- T7: the isolated spot is far from every other spot (3 steps), so nothing is within 100 µm.
 - T8: the rule says spots in different sections never connect, so there is no distance.
 
 The same cases are also in the automatic tests (`tests/test_operations.py`).

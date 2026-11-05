@@ -3,8 +3,8 @@ B01,T1,Which spots are within 100 µm of spot r0c0?,toy grid,spots_within_radius
 B02,T1,List the neighbours of spot r0c0 that are at most 100 µm away.,toy grid,spots_within_radius,spot r0c0,radius 100 µm,none,answered,"6 spots: r-1c-1, r-1c1, r0c-2, r0c2, r1c-1, r1c1"
 B03,T2,Which spots touch spot AACTGCCGCTACATCT-1?,A24,spots_within_radius,spot AACTGCCGCTACATCT-1,radius 150 µm (touching),touching = within 150 µm,answered,"6 spots: ATGTTCACTGCAATCC-1, CCGCTCGGTCACAGTC-1, CGGTAGCAGTCATACT-1, CGTGGCGATTGCCACT-1, GCAGGTCAATAGCGAC-1, GGCGTGAGGAGCCGAA-1"
 B04,T2,Which spots are directly next to spot AACTGCCGCTACATCT-1?,A24,spots_within_radius,spot AACTGCCGCTACATCT-1,radius 150 µm (touching),next to = within 150 µm,answered,"6 spots: ATGTTCACTGCAATCC-1, CCGCTCGGTCACAGTC-1, CGGTAGCAGTCATACT-1, CGTGGCGATTGCCACT-1, GCAGGTCAATAGCGAC-1, GGCGTGAGGAGCCGAA-1"
-B05,T3,How far is spot r2c4 from region R?,toy grid,distance_to_region,spot r2c4; region R,µm,none,answered,435.9 µm
-B06,T3,What is the distance between spot r2c4 and the closest spot of region R?,toy grid,distance_to_region,spot r2c4; region R,µm,none,answered,435.9 µm
+B05,T3,How far is spot r-2c2 from region R?,toy grid,distance_to_region,spot r-2c2; region R,µm,none,answered,200.0 µm
+B06,T3,What is the distance between spot r-2c2 and the closest spot of region R?,toy grid,distance_to_region,spot r-2c2; region R,µm,none,answered,200.0 µm
 B07,T4,How far is spot GACGCTCGAGGAGTGC-1 from the nearest PRAME-high spot?,A24,distance_to_region,spot GACGCTCGAGGAGTGC-1; region PRAME-high,µm,PRAME-high = PRAME > 1.5; CXCL9-high = CXCL9 > 2,answered,265.3 µm
 B08,T4,What is the distance from spot GACGCTCGAGGAGTGC-1 to the PRAME-high spots?,A24,distance_to_region,spot GACGCTCGAGGAGTGC-1; region PRAME-high,µm,PRAME-high = PRAME > 1.5; CXCL9-high = CXCL9 > 2,answered,265.3 µm
 B09,T5,What fraction of the neighbours of spot r0c0 (within 100 µm) are in category C?,toy grid,neighbourhood_fraction,spot r0c0; category C,radius 100 µm,none,answered,4/6 = 0.67
