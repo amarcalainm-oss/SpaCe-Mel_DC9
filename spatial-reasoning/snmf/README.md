@@ -43,10 +43,14 @@ The plan is to compare it with STdeconvolve on the nevus/melanoma Visium data (G
 Any R session started **from this folder** picks up the environment automatically (`.Rprofile` runs
 `renv/activate.R`):
 
-```bash
-cd spatial-reasoning/snmf
-"/c/Program Files/R/R-4.5.0/bin/Rscript.exe" -e "library(SNMF); torch::cuda_is_available()"
+In PowerShell (note the `&` in front of the quoted path):
+
+```powershell
+cd C:\TECNUN_LOCAL_MSI\Space-MEL\spatial-reasoning\snmf
+& "C:\Program Files\R\R-4.5.0\bin\Rscript.exe" -e "library(SNMF); torch::cuda_is_available()"
 ```
+
+It should print `[1] TRUE` (GPU visible).
 
 In RStudio, open this folder as the project.
 
