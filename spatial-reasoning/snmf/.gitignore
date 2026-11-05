@@ -1,0 +1,5 @@
+# Upstream SNMF source (cloned from GitHub, not ours)
+external/
+# R session files
+.Rhistory
+.RData
