@@ -61,7 +61,7 @@ line, 100 µm apart) and check the functions give exactly that answer. They cove
 
 ![neighbour distances in A24](../results/A24_neighbour_distances.png)
 
-Our µm coordinates come from the tissue image, so touching spots are 99.8–100.6 µm apart, not exactly 100. With
+Our µm coordinates come from the tissue image, so touching spots are 99.8–101.2 µm apart, not exactly 100. With
 *r* = 100 µm most A24 spots get only 1 neighbour instead of 6. **Choose radii between the rings of the grid**: the
 first ring is at 100 µm and the second at ~173 µm, so **150 µm means "the touching spots"** (then 90% of spots get
 6; the rest are on the tissue edge or next to spots removed by QC).

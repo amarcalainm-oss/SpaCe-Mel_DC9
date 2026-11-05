@@ -64,7 +64,7 @@ Key references: Squidpy, GeneGPT, ChatSpatial, SpatialBench (PDFs in Drive `01_p
   `neighbourhood_fraction`; inclusive boundary, no self-neighbour, NaN for no neighbours / no region, never across
   sections), tests in `tests/` (`.venv\Scripts\python.exe -m pytest`), demo + figures in
   `02_spatial_operations/notebooks/01_spatial_operations.ipynb`, guide in `02_spatial_operations/docs/`.
-  Image-based µm coordinates put touching spots at 99.8–100.6 µm: use radii between grid rings (150 µm = first ring).
+  Image-based µm coordinates put touching spots at 99.8–101.2 µm: use radii between grid rings (150 µm = first ring).
 
 ## Conventions
 
