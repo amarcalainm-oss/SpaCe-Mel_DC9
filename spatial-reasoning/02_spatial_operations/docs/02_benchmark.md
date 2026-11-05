@@ -176,8 +176,8 @@ fraction         0.166667
 
 A reference answer is only useful if it is right, so every answer was checked a second, independent way.
 
-**Toy grid (T1, T3, T5, T7, T8): checked on paper, without code.** The toy grid is small and regular (spots 100 µm
-apart), so the answers can be worked out with a pencil:
+**Toy grid (T1, T3, T5, T7, T8): checked mathematically, without code.** The toy grid is small and regular (spots 100 µm
+apart), so the answers can be worked out easily:
 
 - T1: the 6 spots around r0c0 are exactly 100 µm away, so with "within 100 µm" all 6 count.
 - T3: Pythagoras, as shown above: √(350² + 259.8²) = 435.9 µm.
