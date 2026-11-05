@@ -174,9 +174,48 @@ fraction         0.166667
 
 ## How the answers were checked
 
-- **Toy answers** (T1, T3, T5, T7, T8) were worked out by hand, and the same cases are in the automatic tests.
-- **A24 answers** (T2, T4, T6) were recomputed with a separate brute-force calculation (plain numpy distances, not
-  the operations code). All match exactly.
+A reference answer is only useful if it is right, so every answer was checked a second, independent way.
+
+**Toy grid (T1, T3, T5, T7, T8): checked on paper, without code.** The toy grid is small and regular (spots 100 µm
+apart), so the answers can be worked out with a pencil:
+
+- T1: the 6 spots around r0c0 are exactly 100 µm away, so with "within 100 µm" all 6 count.
+- T3: Pythagoras, as shown above: √(350² + 259.8²) = 435.9 µm.
+- T5: count the orange rings around r0c0 in the figure: 4 of its 6 neighbours.
+- T7: the isolated spot is 300 µm from the nearest spot, so nothing is within 100 µm.
+- T8: the rule says spots in different sections never connect, so there is no distance.
+
+The same cases are also in the automatic tests (`tests/test_operations.py`).
+
+**A24 (T2, T4, T6): checked with a second, simpler piece of code.** A24 has 6,059 spots, too many to check on
+paper. So the answers were recomputed in the slowest, most obvious way, **without using our operations**: measure the
+straight-line distance from the spot to every other spot, one by one, with Pythagoras (√(Δx² + Δy²)), and read the
+answer from that list ("brute force" means exactly this: check every possibility, no shortcuts).
+
+Our operations get the same answers differently: they use a fast search method that avoids measuring every pair, plus
+the project rules (boundary, the spot itself, sections). If two independent methods give the same answer, a mistake
+would have to be in both of them at once, which is very unlikely.
+
+The check is the last part of the notebook:
+
+```python
+def distances_from(spot):
+    """Distance (µm) from one spot to every spot, with Pythagoras."""
+    dx, dy = xy[:, 0] - spots.at[spot, "x_um"], xy[:, 1] - spots.at[spot, "y_um"]
+    return pd.Series(np.sqrt(dx**2 + dy**2), index=spots.index)
+
+d_x = distances_from(X).drop(X)               # spot X: distances to all other spots
+touching = d_x[d_x <= TOUCHING_UM].index      # T2: the spots within 150 µm
+d_y = distances_from(Y)[prame_high]           # spot Y: distances to the PRAME-high spots only
+```
+```
+                                          operations  check  same?
+T2: spots touching X                               6      6   True
+T4: distance Y -> nearest PRAME-high (µm)      265.3  265.3   True
+T6: CXCL9-high among X's touching spots          1/6    1/6   True
+```
+
+For T2 the check also confirms they are the **same 6 spots**, not just the same number.
 
 ## Caveats
 
