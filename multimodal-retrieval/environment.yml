@@ -1,0 +1,29 @@
+# Conda environment for multimodal-retrieval (SPACE-MEL DC9, Student 2).
+# Create:   conda env create -f environment.yml
+# Activate: conda activate spacemel
+# Register the kernel for Jupyter: python -m ipykernel install --user --name spacemel
+#
+# Minimal environment that installs these packages together (Python 3.12).
+# The results in this repository were produced with Python 3.14.7 and newer versions,
+# recorded by notebook 00 in manifests/environment_versions.csv.
+
+name: spacemel
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - numpy==2.2.6
+      - pandas==2.2.3
+      - scipy==1.15.3
+      - anndata==0.11.4
+      - scanpy==1.11.1
+      - matplotlib==3.10.3
+      - pillow==11.2.1
+      - openpyxl==3.1.5
+      - h5py==3.13.0
+      - ipykernel==6.29.5
+      - jupyterlab==4.4.2
+      - nbformat==5.10.4
+      - nbconvert==7.16.6

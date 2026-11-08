@@ -1,0 +1,12 @@
+# Raw and processed data are never committed (download with notebook 00)
+data/
+*.h5ad
+*.tar
+*.tar.gz
+*.mtx
+*.mtx.gz
+
+# Jupyter / Python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
