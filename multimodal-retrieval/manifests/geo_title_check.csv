@@ -1,0 +1,12 @@
+gsm,title,patients_in_title,sections_in_files,match
+GSM9022963,Nevus and melanoma in a single slide of patient A2 and A17,A17;A2,A17;A2,True
+GSM9022964,Nevus and melanoma in a single slide of patient A7,A7,A7,True
+GSM9022965,Nevus and melanoma in a single slide of patient A21,A21,A21,True
+GSM9022966,Nevus and melanoma in a single slide of patient A16 and A23,A16;A23,A16;A23,True
+GSM9022967,Nevus and melanoma in a single slide of patient A22 and A24,A22;A24,A22;A24,True
+GSM9022968,Nevus and melanoma in a single slide of patient A34,A34,A34,True
+GSM9022969,Nevus and melanoma in a single slide of patient B1 and B38ex,B1;B38ex,B1;B38ex,True
+GSM9022970,Nevus and melanoma in a single slide of patient B4,B4,B4,True
+GSM9022971,Nevus and melanoma in a single slide of patient B8 and B13,B13;B8,B13;B8,True
+GSM9022972,"Nevus and melanoma in a single slide of patient B14, B15 and B38.2",B14;B15;B38.2,B14;B15;B38.2,True
+GSM9022973,Nevus and melanoma in a single slide of patient D3 and D20,D20;D3,D20;D3,True

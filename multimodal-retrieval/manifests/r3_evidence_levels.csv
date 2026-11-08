@@ -1,0 +1,13 @@
+output,evidence_level,validated_here
+PTPRC expression map,1 - single marker RNA,False
+CD3D expression map,1 - single marker RNA,False
+CD3E expression map,1 - single marker RNA,False
+CD8A expression map,1 - single marker RNA,False
+FOXP3 expression map,1 - single marker RNA,False
+CD14 expression map,1 - single marker RNA,False
+CD68 expression map,1 - single marker RNA,False
+CD163 expression map,1 - single marker RNA,False
+Tcell_assoc_score_provisional,2 - provisional gene score,False
+macrophage_assoc_score_provisional,2 - provisional gene score,False
+"paper Fig. 5A/5C, Supp. Fig. S9D (immune profiles, estimated fractions)",3 - inferred cell composition (authors),False
+"paper Fig. 5B/5D, Supp. Fig. S9B/C (IMC)","4 - protein-level cell identity (authors, adjacent section)",False

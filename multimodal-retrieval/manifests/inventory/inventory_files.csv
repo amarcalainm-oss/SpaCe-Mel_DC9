@@ -1,0 +1,151 @@
+gsm,section,kind,file,size_bytes,detail
+GSM9022963,A17,fiducials_image,GSM9022963_A17_aligned_fiducials.jpg.gz,3053288,3000 x 3000 px
+GSM9022963,A17,barcodes,GSM9022963_A17_barcodes.tsv.gz,73873,13887 lines
+GSM9022963,A17,features,GSM9022963_A17_features.tsv.gz,297935,37082 lines
+GSM9022963,A17,matrix,GSM9022963_A17_matrix.mtx.gz,16285610,"37082 genes x 13887 barcodes, 3928455 non-zero"
+GSM9022963,A17,scalefactors,GSM9022963_A17_scalefactors_json.json.gz,186,"{'regist_target_img_scalef': 0.09904586, 'tissue_hires_scalef': 0.033015285, 'tissue_lowres_scalef': 0.009904586, 'fiducial_diameter_fullres': 286.3541065457857, 'spot_diameter_fullres': 163.63090900784476}"
+GSM9022963,A17,hires_image,GSM9022963_A17_tissue_hires_image.png.gz,9092621,2000 x 1989 px
+GSM9022963,A17,lowres_image,GSM9022963_A17_tissue_lowres_image.png.gz,826560,600 x 597 px
+GSM9022963,A17,positions,GSM9022963_A17_tissue_positions.csv.gz,166323,"14336 positions, 2274 in tissue"
+GSM9022963,A2,fiducials_image,GSM9022963_A2_aligned_fiducials.jpg.gz,3053287,3000 x 3000 px
+GSM9022963,A2,matrix,GSM9022963_A2_matrix.mtx.gz,16288476,"37082 genes x 13916 barcodes, 3928455 non-zero"
+GSM9022963,A2,scalefactors,GSM9022963_A2_scalefactors_json.json.gz,185,"{'regist_target_img_scalef': 0.09904586, 'tissue_hires_scalef': 0.033015285, 'tissue_lowres_scalef': 0.009904586, 'fiducial_diameter_fullres': 286.3541065457857, 'spot_diameter_fullres': 163.63090900784476}"
+GSM9022963,A2,hires_image,GSM9022963_A2_tissue_hires_image.png.gz,9092620,2000 x 1989 px
+GSM9022963,A2,lowres_image,GSM9022963_A2_tissue_lowres_image.png.gz,826559,600 x 597 px
+GSM9022963,A2,positions,GSM9022963_A2_tissue_positions.csv.gz,166318,"14336 positions, 3367 in tissue"
+GSM9022964,A7,fiducials_image,GSM9022964_A7_aligned_fiducials.jpg.gz,2254945,3000 x 3000 px
+GSM9022964,A7,barcodes,GSM9022964_A7_barcodes.tsv.gz,27820,4985 lines
+GSM9022964,A7,features,GSM9022964_A7_features.tsv.gz,297935,37082 lines
+GSM9022964,A7,matrix,GSM9022964_A7_matrix.mtx.gz,16648719,"37082 genes x 4985 barcodes, 4465510 non-zero"
+GSM9022964,A7,scalefactors,GSM9022964_A7_scalefactors_json.json.gz,184,"{'regist_target_img_scalef': 0.12887982, 'tissue_hires_scalef': 0.04295994, 'tissue_lowres_scalef': 0.012887982, 'fiducial_diameter_fullres': 477.56149868777754, 'spot_diameter_fullres': 318.3743394577131}"
+GSM9022964,A7,hires_image,GSM9022964_A7_tissue_hires_image.png.gz,11567730,1677 x 2000 px
+GSM9022964,A7,lowres_image,GSM9022964_A7_tissue_lowres_image.png.gz,1044675,503 x 600 px
+GSM9022964,A7,positions,GSM9022964_A7_tissue_positions.csv.gz,74028,"4992 positions, 2892 in tissue"
+GSM9022965,A21,fiducials_image,GSM9022965_A21_aligned_fiducials.jpg.gz,2907558,3000 x 3000 px
+GSM9022965,A21,barcodes,GSM9022965_A21_barcodes.tsv.gz,12762,2260 lines
+GSM9022965,A21,features,GSM9022965_A21_features.tsv.gz,156435,18085 lines
+GSM9022965,A21,matrix,GSM9022965_A21_matrix.mtx.gz,23157799,"18085 genes x 2260 barcodes, 6486295 non-zero"
+GSM9022965,A21,scalefactors,GSM9022965_A21_scalefactors_json.json.gz,186,"{'regist_target_img_scalef': 0.11310298, 'tissue_hires_scalef': 0.037700992, 'tissue_lowres_scalef': 0.011310298, 'fiducial_diameter_fullres': 356.87860804292853, 'spot_diameter_fullres': 237.91907728108643}"
+GSM9022965,A21,hires_image,GSM9022965_A21_tissue_hires_image.png.gz,9569775,2000 x 1894 px
+GSM9022965,A21,lowres_image,GSM9022965_A21_tissue_lowres_image.png.gz,815597,600 x 568 px
+GSM9022965,A21,positions,GSM9022965_A21_tissue_positions.csv.gz,68296,"4992 positions, 2260 in tissue"
+GSM9022966,A16,fiducials_image,GSM9022966_A16_aligned_fiducials.jpg.gz,2776059,3000 x 3000 px
+GSM9022966,A16,barcodes,GSM9022966_A16_barcodes.tsv.gz,28407,5195 lines
+GSM9022966,A16,features,GSM9022966_A16_features.tsv.gz,156435,18085 lines
+GSM9022966,A16,matrix,GSM9022966_A16_matrix.mtx.gz,40924858,"18085 genes x 5195 barcodes, 11241079 non-zero"
+GSM9022966,A16,scalefactors,GSM9022966_A16_scalefactors_json.json.gz,185,"{'regist_target_img_scalef': 0.09364319, 'tissue_hires_scalef': 0.031214396, 'tissue_lowres_scalef': 0.009364319, 'fiducial_diameter_fullres': 286.0324592507996, 'spot_diameter_fullres': 163.44712137293664}"
+GSM9022966,A16,hires_image,GSM9022966_A16_tissue_hires_image.png.gz,8259989,2000 x 1639 px
+GSM9022966,A16,lowres_image,GSM9022966_A16_tissue_lowres_image.png.gz,718210,600 x 492 px
+GSM9022966,A16,positions,GSM9022966_A16_tissue_positions.csv.gz,210365,"14336 positions, 5195 in tissue"
+GSM9022966,A23,fiducials_image,GSM9022966_A23_aligned_fiducials.jpg.gz,2776059,3000 x 3000 px
+GSM9022966,A23,barcodes,GSM9022966_A23_barcodes.tsv.gz,15631,2782 lines
+GSM9022966,A23,features,GSM9022966_A23_features.tsv.gz,156435,18085 lines
+GSM9022966,A23,matrix,GSM9022966_A23_matrix.mtx.gz,26692993,"18085 genes x 2782 barcodes, 7460306 non-zero"
+GSM9022966,A23,scalefactors,GSM9022966_A23_scalefactors_json.json.gz,185,"{'regist_target_img_scalef': 0.09364319, 'tissue_hires_scalef': 0.031214396, 'tissue_lowres_scalef': 0.009364319, 'fiducial_diameter_fullres': 286.0324592507996, 'spot_diameter_fullres': 163.44712137293664}"
+GSM9022966,A23,hires_image,GSM9022966_A23_tissue_hires_image.png.gz,8259989,2000 x 1639 px
+GSM9022966,A23,lowres_image,GSM9022966_A23_tissue_lowres_image.png.gz,718210,600 x 492 px
+GSM9022966,A23,positions,GSM9022966_A23_tissue_positions.csv.gz,210256,"14336 positions, 2782 in tissue"
+GSM9022967,A22,fiducials_image,GSM9022967_A22_aligned_fiducials.jpg.gz,3163966,3000 x 3000 px
+GSM9022967,A22,barcodes,GSM9022967_A22_barcodes.tsv.gz,76213,14336 lines
+GSM9022967,A22,features,GSM9022967_A22_features.tsv.gz,297935,37082 lines
+GSM9022967,A22,matrix,GSM9022967_A22_matrix.mtx.gz,197399539,"37082 genes x 14336 barcodes, 50577269 non-zero"
+GSM9022967,A22,scalefactors,GSM9022967_A22_scalefactors_json.json.gz,186,"{'regist_target_img_scalef': 0.10279253, 'tissue_hires_scalef': 0.034264177, 'tissue_lowres_scalef': 0.010279253, 'fiducial_diameter_fullres': 271.89670154906065, 'spot_diameter_fullres': 155.3695557288983}"
+GSM9022967,A22,hires_image,GSM9022967_A22_tissue_hires_image.png.gz,8635396,2000 x 1834 px
+GSM9022967,A22,lowres_image,GSM9022967_A22_tissue_lowres_image.png.gz,736783,600 x 550 px
+GSM9022967,A22,positions,GSM9022967_A22_tissue_positions.csv.gz,211655,"14336 positions, 4326 in tissue"
+GSM9022967,A24,fiducials_image,GSM9022967_A24_aligned_fiducials.jpg.gz,3163966,3000 x 3000 px
+GSM9022967,A24,barcodes,GSM9022967_A24_barcodes.tsv.gz,76207,14335 lines
+GSM9022967,A24,features,GSM9022967_A24_features.tsv.gz,297935,37082 lines
+GSM9022967,A24,matrix,GSM9022967_A24_matrix.mtx.gz,197397131,"37082 genes x 14335 barcodes, 50577269 non-zero"
+GSM9022967,A24,scalefactors,GSM9022967_A24_scalefactors_json.json.gz,186,"{'regist_target_img_scalef': 0.10279253, 'tissue_hires_scalef': 0.034264177, 'tissue_lowres_scalef': 0.010279253, 'fiducial_diameter_fullres': 271.89670154906065, 'spot_diameter_fullres': 155.3695557288983}"
+GSM9022967,A24,hires_image,GSM9022967_A24_tissue_hires_image.png.gz,8635396,2000 x 1834 px
+GSM9022967,A24,lowres_image,GSM9022967_A24_tissue_lowres_image.png.gz,736783,600 x 550 px
+GSM9022967,A24,positions,GSM9022967_A24_tissue_positions.csv.gz,211626,"14336 positions, 6165 in tissue"
+GSM9022968,A34,fiducials_image,GSM9022968_A34_aligned_fiducials.jpg.gz,2487612,3000 x 3000 px
+GSM9022968,A34,barcodes,GSM9022968_A34_barcodes.tsv.gz,75572,14203 lines
+GSM9022968,A34,features,GSM9022968_A34_features.tsv.gz,297935,37082 lines
+GSM9022968,A34,matrix,GSM9022968_A34_matrix.mtx.gz,14611370,"37082 genes x 14203 barcodes, 3515417 non-zero"
+GSM9022968,A34,scalefactors,GSM9022968_A34_scalefactors_json.json.gz,187,"{'regist_target_img_scalef': 0.095226005, 'tissue_hires_scalef': 0.031742003, 'tissue_lowres_scalef': 0.0095226, 'fiducial_diameter_fullres': 371.40844484712903, 'spot_diameter_fullres': 212.23340173459087}"
+GSM9022968,A34,hires_image,GSM9022968_A34_tissue_hires_image.png.gz,8087569,2000 x 1391 px
+GSM9022968,A34,lowres_image,GSM9022968_A34_tissue_lowres_image.png.gz,713392,600 x 417 px
+GSM9022968,A34,positions,GSM9022968_A34_tissue_positions.csv.gz,209162,"14336 positions, 4151 in tissue"
+GSM9022969,B1,fiducials_image,GSM9022969_B1_aligned_fiducials.jpg.gz,2993888,3000 x 3000 px
+GSM9022969,B1,barcodes,GSM9022969_B1_barcodes.tsv.gz,76198,14328 lines
+GSM9022969,B1,features,GSM9022969_B1_features.tsv.gz,297935,37082 lines
+GSM9022969,B1,matrix,GSM9022969_B1_matrix.mtx.gz,158176077,"37082 genes x 14328 barcodes, 40712398 non-zero"
+GSM9022969,B1,scalefactors,GSM9022969_B1_scalefactors_json.json.gz,184,"{'regist_target_img_scalef': 0.1112574, 'tissue_hires_scalef': 0.037085798, 'tissue_lowres_scalef': 0.01112574, 'fiducial_diameter_fullres': 324.08902336439917, 'spot_diameter_fullres': 185.19373173874237}"
+GSM9022969,B1,hires_image,GSM9022969_B1_tissue_hires_image.png.gz,10113633,2000 x 1934 px
+GSM9022969,B1,lowres_image,GSM9022969_B1_tissue_lowres_image.png.gz,837762,600 x 580 px
+GSM9022969,B1,positions,GSM9022969_B1_tissue_positions.csv.gz,209384,"14336 positions, 3952 in tissue"
+GSM9022969,B38ex,fiducials_image,GSM9022969_B38ex_aligned_fiducials.jpg.gz,2993891,3000 x 3000 px
+GSM9022969,B38ex,barcodes,GSM9022969_B38ex_barcodes.tsv.gz,76198,14328 lines
+GSM9022969,B38ex,features,GSM9022969_B38ex_features.tsv.gz,297935,37082 lines
+GSM9022969,B38ex,matrix,GSM9022969_B38ex_matrix.mtx.gz,158176077,"37082 genes x 14328 barcodes, 40712398 non-zero"
+GSM9022969,B38ex,scalefactors,GSM9022969_B38ex_scalefactors_json.json.gz,187,"{'regist_target_img_scalef': 0.1112574, 'tissue_hires_scalef': 0.037085798, 'tissue_lowres_scalef': 0.01112574, 'fiducial_diameter_fullres': 324.08902336439917, 'spot_diameter_fullres': 185.19373173874237}"
+GSM9022969,B38ex,hires_image,GSM9022969_B38ex_tissue_hires_image.png.gz,10113636,2000 x 1934 px
+GSM9022969,B38ex,lowres_image,GSM9022969_B38ex_tissue_lowres_image.png.gz,837765,600 x 580 px
+GSM9022969,B38ex,positions,GSM9022969_B38ex_tissue_positions.csv.gz,209121,"14336 positions, 1861 in tissue"
+GSM9022970,B4,fiducials_image,GSM9022970_B4_aligned_fiducials.jpg.gz,2842807,3000 x 3000 px
+GSM9022970,B4,barcodes,GSM9022970_B4_barcodes.tsv.gz,76184,14331 lines
+GSM9022970,B4,features,GSM9022970_B4_features.tsv.gz,297935,37082 lines
+GSM9022970,B4,matrix,GSM9022970_B4_matrix.mtx.gz,100367338,"37082 genes x 14331 barcodes, 25665036 non-zero"
+GSM9022970,B4,scalefactors,GSM9022970_B4_scalefactors_json.json.gz,184,"{'regist_target_img_scalef': 0.11251758, 'tissue_hires_scalef': 0.03750586, 'tissue_lowres_scalef': 0.011251758, 'fiducial_diameter_fullres': 308.3909526638283, 'spot_diameter_fullres': 176.22340542560465}"
+GSM9022970,B4,hires_image,GSM9022970_B4_tissue_hires_image.png.gz,10344296,1934 x 2000 px
+GSM9022970,B4,lowres_image,GSM9022970_B4_tissue_lowres_image.png.gz,843598,580 x 600 px
+GSM9022970,B4,positions,GSM9022970_B4_tissue_positions.csv.gz,209562,"14336 positions, 6415 in tissue"
+GSM9022971,B13,fiducials_image,GSM9022971_B13_aligned_fiducials.jpg.gz,2852931,3000 x 3000 px
+GSM9022971,B13,barcodes,GSM9022971_B13_barcodes.tsv.gz,75588,14210 lines
+GSM9022971,B13,features,GSM9022971_B13_features.tsv.gz,297935,37082 lines
+GSM9022971,B13,matrix,GSM9022971_B13_matrix.mtx.gz,19426285,"37082 genes x 14210 barcodes, 4718584 non-zero"
+GSM9022971,B13,scalefactors,GSM9022971_B13_scalefactors_json.json.gz,189,"{'regist_target_img_scalef': 0.100026675, 'tissue_hires_scalef': 0.033342224, 'tissue_lowres_scalef': 0.010002667, 'fiducial_diameter_fullres': 358.06021996772154, 'spot_diameter_fullres': 204.60585584148942}"
+GSM9022971,B13,hires_image,GSM9022971_B13_tissue_hires_image.png.gz,8278449,1732 x 2000 px
+GSM9022971,B13,lowres_image,GSM9022971_B13_tissue_lowres_image.png.gz,719440,520 x 600 px
+GSM9022971,B13,positions,GSM9022971_B13_tissue_positions.csv.gz,179348,"14336 positions, 3614 in tissue"
+GSM9022971,B8,fiducials_image,GSM9022971_B8_aligned_fiducials.jpg.gz,2852930,3000 x 3000 px
+GSM9022971,B8,barcodes,GSM9022971_B8_barcodes.tsv.gz,75588,14210 lines
+GSM9022971,B8,features,GSM9022971_B8_features.tsv.gz,297935,37082 lines
+GSM9022971,B8,matrix,GSM9022971_B8_matrix.mtx.gz,19426285,"37082 genes x 14210 barcodes, 4718584 non-zero"
+GSM9022971,B8,scalefactors,GSM9022971_B8_scalefactors_json.json.gz,188,"{'regist_target_img_scalef': 0.100026675, 'tissue_hires_scalef': 0.033342224, 'tissue_lowres_scalef': 0.010002667, 'fiducial_diameter_fullres': 358.06021996772154, 'spot_diameter_fullres': 204.60585584148942}"
+GSM9022971,B8,hires_image,GSM9022971_B8_tissue_hires_image.png.gz,8278448,1732 x 2000 px
+GSM9022971,B8,lowres_image,GSM9022971_B8_tissue_lowres_image.png.gz,719439,520 x 600 px
+GSM9022971,B8,positions,GSM9022971_B8_tissue_positions.csv.gz,178951,"14336 positions, 5780 in tissue"
+GSM9022972,B14,fiducials_image,GSM9022972_B14_aligned_fiducials.jpg.gz,2982607,3000 x 3000 px
+GSM9022972,B14,barcodes,GSM9022972_B14_barcodes.tsv.gz,75220,14145 lines
+GSM9022972,B14,features,GSM9022972_B14_features.tsv.gz,297935,37082 lines
+GSM9022972,B14,matrix,GSM9022972_B14_matrix.mtx.gz,21995349,"37082 genes x 14145 barcodes, 5401626 non-zero"
+GSM9022972,B14,scalefactors,GSM9022972_B14_scalefactors_json.json.gz,187,"{'regist_target_img_scalef': 0.10273796, 'tissue_hires_scalef': 0.03424599, 'tissue_lowres_scalef': 0.0102737965, 'fiducial_diameter_fullres': 356.98010011904773, 'spot_diameter_fullres': 203.9886241204412}"
+GSM9022972,B14,hires_image,GSM9022972_B14_tissue_hires_image.png.gz,7972028,2000 x 1778 px
+GSM9022972,B14,lowres_image,GSM9022972_B14_tissue_lowres_image.png.gz,695919,600 x 534 px
+GSM9022972,B14,positions,GSM9022972_B14_tissue_positions.csv.gz,211347,"14336 positions, 2206 in tissue"
+GSM9022972,B15,fiducials_image,GSM9022972_B15_aligned_fiducials.jpg.gz,2982607,3000 x 3000 px
+GSM9022972,B15,barcodes,GSM9022972_B15_barcodes.tsv.gz,75220,14145 lines
+GSM9022972,B15,features,GSM9022972_B15_features.tsv.gz,297935,37082 lines
+GSM9022972,B15,matrix,GSM9022972_B15_matrix.mtx.gz,21995349,"37082 genes x 14145 barcodes, 5401626 non-zero"
+GSM9022972,B15,scalefactors,GSM9022972_B15_scalefactors_json.json.gz,187,"{'regist_target_img_scalef': 0.10273796, 'tissue_hires_scalef': 0.03424599, 'tissue_lowres_scalef': 0.0102737965, 'fiducial_diameter_fullres': 356.98010011904773, 'spot_diameter_fullres': 203.9886241204412}"
+GSM9022972,B15,hires_image,GSM9022972_B15_tissue_hires_image.png.gz,7972028,2000 x 1778 px
+GSM9022972,B15,lowres_image,GSM9022972_B15_tissue_lowres_image.png.gz,695919,600 x 534 px
+GSM9022972,B15,positions,GSM9022972_B15_tissue_positions.csv.gz,211582,"14336 positions, 3171 in tissue"
+GSM9022972,B38_2,fiducials_image,GSM9022972_B38_2_aligned_fiducials.jpg.gz,2982609,3000 x 3000 px
+GSM9022972,B38_2,barcodes,GSM9022972_B38_2_barcodes.tsv.gz,75220,14145 lines
+GSM9022972,B38_2,features,GSM9022972_B38_2_features.tsv.gz,297935,37082 lines
+GSM9022972,B38_2,matrix,GSM9022972_B38_2_matrix.mtx.gz,21995349,"37082 genes x 14145 barcodes, 5401626 non-zero"
+GSM9022972,B38_2,scalefactors,GSM9022972_B38_2_scalefactors_json.json.gz,189,"{'regist_target_img_scalef': 0.10273796, 'tissue_hires_scalef': 0.03424599, 'tissue_lowres_scalef': 0.0102737965, 'fiducial_diameter_fullres': 356.98010011904773, 'spot_diameter_fullres': 203.9886241204412}"
+GSM9022972,B38_2,hires_image,GSM9022972_B38_2_tissue_hires_image.png.gz,7972030,2000 x 1778 px
+GSM9022972,B38_2,lowres_image,GSM9022972_B38_2_tissue_lowres_image.png.gz,695921,600 x 534 px
+GSM9022972,B38_2,positions,GSM9022972_B38_2_tissue_positions.csv.gz,211421,"14336 positions, 2100 in tissue"
+GSM9022973,D20,fiducials_image,GSM9022973_D20_aligned_fiducials.jpg.gz,2677183,3000 x 3000 px
+GSM9022973,D20,barcodes,GSM9022973_D20_barcodes.tsv.gz,27896,4991 lines
+GSM9022973,D20,features,GSM9022973_D20_features.tsv.gz,297935,37082 lines
+GSM9022973,D20,matrix,GSM9022973_D20_matrix.mtx.gz,39793647,"37082 genes x 4991 barcodes, 10256031 non-zero"
+GSM9022973,D20,scalefactors,GSM9022973_D20_scalefactors_json.json.gz,186,"{'regist_target_img_scalef': 0.1107338, 'tissue_hires_scalef': 0.036911264, 'tissue_lowres_scalef': 0.01107338, 'fiducial_diameter_fullres': 405.67689956123166, 'spot_diameter_fullres': 270.45126637415444}"
+GSM9022973,D20,hires_image,GSM9022973_D20_tissue_hires_image.png.gz,10479963,1948 x 2000 px
+GSM9022973,D20,lowres_image,GSM9022973_D20_tissue_lowres_image.png.gz,942595,585 x 600 px
+GSM9022973,D20,positions,GSM9022973_D20_tissue_positions.csv.gz,73189,"4992 positions, 1089 in tissue"
+GSM9022973,D3,fiducials_image,GSM9022973_D3_aligned_fiducials.jpg.gz,2677182,3000 x 3000 px
+GSM9022973,D3,barcodes,GSM9022973_D3_barcodes.tsv.gz,27896,4991 lines
+GSM9022973,D3,features,GSM9022973_D3_features.tsv.gz,297935,37082 lines
+GSM9022973,D3,matrix,GSM9022973_D3_matrix.mtx.gz,39793647,"37082 genes x 4991 barcodes, 10256031 non-zero"
+GSM9022973,D3,scalefactors,GSM9022973_D3_scalefactors_json.json.gz,185,"{'regist_target_img_scalef': 0.1107338, 'tissue_hires_scalef': 0.036911264, 'tissue_lowres_scalef': 0.01107338, 'fiducial_diameter_fullres': 405.67689956123166, 'spot_diameter_fullres': 270.45126637415444}"
+GSM9022973,D3,hires_image,GSM9022973_D3_tissue_hires_image.png.gz,10479962,1948 x 2000 px
+GSM9022973,D3,lowres_image,GSM9022973_D3_tissue_lowres_image.png.gz,942594,585 x 600 px
+GSM9022973,D3,positions,GSM9022973_D3_tissue_positions.csv.gz,73179,"4992 positions, 1501 in tissue"

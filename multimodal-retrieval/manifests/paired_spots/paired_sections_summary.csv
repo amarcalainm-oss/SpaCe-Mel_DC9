@@ -1,0 +1,3 @@
+section_id,gsm,patient_id,um_per_image_px,patch_context_px,patch_context_um,patch_spot_px,patch_spot_um,qc_pass_spots,candidates_inside_image,n_pairs,genes_per_profile,min_pair_distance_um,all_checks_passed,median_total_counts_selected,median_n_genes_selected
+B1,GSM9022969,B1,8.73,29,253.1,7,61.1,3931,3931,40,37082,264.3,True,29004.5,5766.5
+A24,GSM9022967,A24,11.27,23,259.2,5,56.3,6059,6059,40,37082,264.8,True,18426.0,4700.0

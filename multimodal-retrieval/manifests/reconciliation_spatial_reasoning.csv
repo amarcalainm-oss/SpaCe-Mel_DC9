@@ -1,0 +1,16 @@
+item,spatial_reasoning,this_manifest
+sections in GEO,19,19
+usable sections,18,18
+excluded section(s),A2,A2
+A2 matrix columns vs A17 barcodes,"13,916 vs 13,887","13,916 vs 13,887"
+sections on 6.5 mm capture areas,"A7, A21, D3, D20","A21, A7, D20, D3"
+"sections with the 18,085-gene panel","A16, A21, A23","A16, A21, A23"
+shared in-tissue barcodes between sections on one capture area,never overlap,0
+µm per full-resolution pixel (spot grid),0.22-0.39,0.2198-0.3861
+spot_diameter_fullres converted with the grid (µm),not 55/65 µm; not used,59.9-70.1; not used
+in-tissue spots before QC (usable sections),"61,734",61734
+spots passing the paper's QC,"39,483",computed in notebook 02 (2.6)
+region labels in GEO,none,none (region_label = 'not available')
+patients among usable sections,18 (B38ex and B38_2 listed as separate patients),17
+B38ex / B38_2 same patient?,not stated,yes - one row 'B38' in Supplementary Table S1
+B38ex in paper-analysed set (Supp. Fig. S1C)?,not stated,False

@@ -1,0 +1,20 @@
+gsm,section_id,section_label,patient_id,shares_capture_area_with,sections_of_same_patient,in_paper_S1C,used_in_this_project,n_genes_panel,matrix_scope,in_tissue,in_tissue_missing_from_matrix,spots_loaded,patient_number,Sex,Age at time of diagnosis,Anatomical location,Breslow thickness,Melanoma stage,Ulceration,WHO classification,PRAME staining (nevus/melanoma),P16 staining (nevus/melanoma),includes melanoma in situ component?,includes dermal nevus component?
+GSM9022963,A17,A17,A17,A2,A17,True,True,37082.0,whole capture area,2274.0,0.0,2274.0,17,Female,36,"face, cheek",1.1 mm,"T2aN0M0, Stage IB",no,(I) Low CSD melanoma,-/+,Checkerboard/aberrant,yes,yes
+GSM9022963,A2,A2,A2,A17,A2,True,False,,,,,,2,Female,49,shoulder,0.4 mm,"T1aN0M0, Stage IA",no,(I) Low CSD melanoma,-/ ±,Checkerboard/aberrant,yes,yes
+GSM9022964,A7,A7,A7,none,A7,True,True,37082.0,whole capture area,2892.0,0.0,2892.0,7,Female,31,lower back,0.9 mm,"T1bN0M0, Stage IA",no,(I) Low CSD melanoma,-/-,Checkerboard/aberrant,yes,yes
+GSM9022965,A21,A21,A21,none,A21,True,True,18085.0,this section only,2260.0,0.0,2260.0,21,Female,40,lower back,1.3 mm,"T2aN0M0, Stage IB",no,(I) Low CSD melanoma,-/ ±,Checkerboard/aberrant,yes,yes
+GSM9022966,A16,A16,A16,A23,A16,True,True,18085.0,this section only,5195.0,0.0,5195.0,16,Female,72,shoulder,1.2 mm,"T2aN0M0, Stage IB",no,(I) Low CSD melanoma,-/ ±,Checkerboard/aberrant,yes,yes
+GSM9022966,A23,A23,A23,A16,A23,True,True,18085.0,this section only,2782.0,0.0,2782.0,23,Male,37,shoulder,0.9 mm,"T1bN0M0, Stage IA",no,(I) Low CSD melanoma,-/ ±,Checkerboard/aberrant,yes,yes
+GSM9022967,A22,A22,A22,A24,A22,True,True,37082.0,whole capture area,4326.0,0.0,4326.0,22,Male,48,lower back,1.5 mm,"T2aN0M0, Stage IB",no,(I) Low CSD melanoma,-/ ±,Checkerboard/aberrant,yes,yes
+GSM9022967,A24,A24,A24,A22,A24,True,True,37082.0,whole capture area,6165.0,0.0,6165.0,24,Male,71,upper arm,2.4 mm,"T3aN0M0, Stage IIA",no,(I) Low CSD melanoma,-/+ ,Checkerboard/aberrant,yes,yes
+GSM9022968,A34,A34,A34,none,A34,True,True,37082.0,whole capture area,4151.0,0.0,4151.0,34,Female,17,"face, temporal",0.9 mm,"T1bN0M0, Stage IA",no,(I) Low CSD melanoma,-/ ±,Checkerboard/aberrant,yes,yes
+GSM9022969,B1,B1,B1,B38ex,B1,True,True,37082.0,whole capture area,3952.0,0.0,3952.0,1,Male,48,mid back,3.1 mm,"T3aN0M0, Stage IIA",no,(I) Low CSD melanoma,-/ ±,Checkerboard/aberrant,yes,yes
+GSM9022969,B38ex,B38ex,B38,B1,B38ex;B38.2,False,True,37082.0,whole capture area,1861.0,0.0,1861.0,38,Male,47,"face, jaw",0.7 mm,"T1aN0M0, Stage IA",no,(I) Low CSD melanoma,-/+ ,Checkerboard/aberrant,yes,yes
+GSM9022970,B4,B4,B4,none,B4,True,True,37082.0,whole capture area,6415.0,0.0,6415.0,4,Male,72,upper back,2.0 mm,"T2aN0M0, Stage IB",no,(I) Low CSD melanoma,-/+ ,Checkerboard/aberrant,yes,yes
+GSM9022971,B13,B13,B13,B8,B13,True,True,37082.0,whole capture area,3614.0,0.0,3614.0,13,Female,38,"face, temporal",3.0 mm,"T3bN3cM0, Stage IIIC",yes,(I) Low CSD melanoma,-/+,Checkerboard/aberrant,yes,yes
+GSM9022971,B8,B8,B8,B13,B8,True,True,37082.0,whole capture area,5780.0,0.0,5780.0,8,Male,62,mid back,0.6 mm,"T1aN0M0, Stage IA",no,(I) Low CSD melanoma,-/+,Checkerboard/aberrant,yes,yes
+GSM9022972,B14,B14,B14,B15;B38.2,B14,True,True,37082.0,whole capture area,2206.0,0.0,2206.0,14,Female,47,upper arm,0.9 mm,"T1bN0M0, Stage IA",no,(I) Low CSD melanoma,-/ ±,Checkerboard/aberrant,yes,yes
+GSM9022972,B15,B15,B15,B14;B38.2,B15,True,True,37082.0,whole capture area,3171.0,0.0,3171.0,15,Female,53,back,1.1 mm,"T2aN0M0, Stage IB",no,(I) Low CSD melanoma,-/ ±,Checkerboard/aberrant,yes,yes
+GSM9022972,B38_2,B38.2,B38,B14;B15,B38ex;B38.2,True,True,37082.0,whole capture area,2100.0,0.0,2100.0,38,Male,47,"face, jaw",0.7 mm,"T1aN0M0, Stage IA",no,(I) Low CSD melanoma,-/+ ,Checkerboard/aberrant,yes,yes
+GSM9022973,D20,D20,D20,D3,D20,True,True,37082.0,whole capture area,1089.0,0.0,1089.0,20,Male,43,abdomen,1.0 mm,"T1bN0M0, Stage IA",no,(I) Low CSD melanoma,-/+,Checkerboard/aberrant,yes,yes
+GSM9022973,D3,D3,D3,D20,D3,True,True,37082.0,whole capture area,1501.0,0.0,1501.0, 3,Female,41,"face, jaw",0.7 mm,"T1aN0M0, Stage IA",no,(I) Low CSD melanoma,-/+ ,Checkerboard/aberrant,yes,yes

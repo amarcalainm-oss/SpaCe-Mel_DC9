@@ -1,0 +1,7 @@
+,passed,min_pair_distance_um
+1_rna_rows_match_patch_table,True,264.8
+2_uid_equals_gsm_colon_barcode,True,264.8
+3_all_qc_pass,True,264.8
+4_saved_patches_equal_image_crops,True,264.8
+5_min_distance_um_ok,True,264.8
+6_all_profiles_nonzero,True,264.8

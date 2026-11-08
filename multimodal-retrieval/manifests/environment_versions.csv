@@ -1,0 +1,11 @@
+package,version
+python,3.14.7
+numpy,2.5.4
+pandas,3.1.0
+scipy,1.18.1
+anndata,0.13.4
+scanpy,1.12.4
+matplotlib,3.11.2
+pillow,11.3.0
+openpyxl,3.1.5
+h5py,3.16.0

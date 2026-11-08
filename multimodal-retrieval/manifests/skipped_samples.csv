@@ -1,0 +1,2 @@
+gsm,section_id,reason,missing_files
+GSM9022963,A2,"No barcodes.tsv file in GEO; its matrix has 13,916 columns that cannot be matched to spot barcodes. Decision (project): not used, no recovery attempted.",barcodes;features
