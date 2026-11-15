@@ -6,6 +6,7 @@ The benchmark answers drawn on the slides are recomputed with the tested operati
 02_spatial_operations/benchmark/benchmark.csv, so the slides cannot drift from the benchmark table.
 """
 
+import gzip
 import json
 import sys
 from pathlib import Path
@@ -47,15 +48,35 @@ for pid, gsm in QC_EXAMPLES.items():
     }
     print(pid, a.n_obs, "spots,", (fail != "").sum(), "fail QC")
 
-# 2. Shared capture area GSM9022967: which spots belong to A22, to A24, or to neither.
-pos = {pid: pd.read_csv(RAW / f"GSM9022967_{pid}_tissue_positions.csv.gz", index_col=0) for pid in ["A22", "A24"]}
-base = pos["A24"]
-owner = np.where(pos["A24"].in_tissue == 1, 2, np.where(pos["A22"].loc[base.index].in_tissue == 1, 1, 0))
+# 2. Capture area GSM9022972 holds three sections (B14, B15, B38_2): which section owns each spot (0 = none).
+SECTIONS = ["B14", "B15", "B38_2"]
+pos = {pid: pd.read_csv(RAW / f"GSM9022972_{pid}_tissue_positions.csv.gz", index_col=0) for pid in SECTIONS}
+base = pos[SECTIONS[0]]
+owner = np.zeros(len(base), int)
+for k, pid in enumerate(SECTIONS, start=1):
+    owner[(pos[pid].loc[base.index].in_tissue == 1).to_numpy()] = k
 px = base[["pxl_col_in_fullres", "pxl_row_in_fullres"]].to_numpy(float)   # image orientation (x, y)
 xy = px * 100.0 / np.median(cKDTree(px).query(px, k=2)[0][:, 1])            # 100 µm between touching spots
 xy -= xy.min(axis=0)
 data["shared_area"] = {"x": np.round(xy[:, 0]).astype(int).tolist(), "y": np.round(xy[:, 1]).astype(int).tolist(),
-                       "owner": owner.tolist()}
+                       "owner": owner.tolist(), "sections": SECTIONS}
+
+# 2b. Error of the "65 µm / spot_diameter_fullres" scale rule against the 100 µm grid, per capture area.
+units = {}
+for f in sorted(RAW.glob("*_tissue_positions.csv.gz")):
+    gsm, pid = f.name.split("_tissue_positions")[0].split("_", 1)
+    if pid == "A2":
+        continue
+    p = pd.read_csv(f, index_col=0)
+    p = p[p.in_tissue == 1][["pxl_col_in_fullres", "pxl_row_in_fullres"]].to_numpy(float)
+    grid = 100.0 / np.median(cKDTree(p).query(p, k=2)[0][:, 1])
+    sf = json.loads(gzip.open(str(f).replace("tissue_positions.csv.gz", "scalefactors_json.json.gz")).read())
+    units.setdefault(gsm, {"sections": [], "err": []})
+    units[gsm]["sections"].append(pid)
+    units[gsm]["err"].append(100 * (65 / sf["spot_diameter_fullres"] - grid) / grid)
+data["units"] = sorted(([gsm, "+".join(u["sections"]), round(float(np.mean(u["err"])), 1)] for gsm, u in units.items()),
+                       key=lambda r: r[2])
+print("65 µm rule error by capture area:", data["units"])
 
 # 3. A24 after QC: provisional expression-defined sets and the benchmark spots.
 a24 = ad.read_h5ad(PROCESSED / f"{GSE}_A24.h5ad")

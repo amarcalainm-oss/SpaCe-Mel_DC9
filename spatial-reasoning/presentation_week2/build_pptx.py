@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw
 from pptx import Presentation
 from pptx.chart.data import CategoryChartData
 from pptx.dml.color import RGBColor
-from pptx.enum.chart import XL_CHART_TYPE, XL_LABEL_POSITION
+from pptx.enum.chart import XL_CHART_TYPE, XL_LABEL_POSITION, XL_TICK_LABEL_POSITION
 from pptx.enum.dml import MSO_LINE_DASH_STYLE
 from pptx.enum.shapes import MSO_CONNECTOR, MSO_SHAPE
 from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
@@ -203,7 +203,7 @@ def abc(slide, items, y=914):
 
 def legend(slide, x, y, items):
     """items: (label, style) with style k=solid, m=mid, f=faint, o=outline."""
-    fills = {"k": (INK, None), "m": ("9A9CE0", None), "f": ("D3D0E2", None), "o": (PAPER, INK)}
+    fills = {"k": (INK, None), "m": ("9A9CE0", None), "l": ("C2C1DE", None), "f": ("D3D0E2", None), "o": (PAPER, INK)}
     for label, st in items:
         f, l = fills[st]
         dot(slide, x, y + 4, 15, f, l)
@@ -220,7 +220,7 @@ text(s, 80, 130, 1120, 400, [[("Grounding spatial questions in ", serif(100)),
 text(s, 80, 560, 1040, 100, [("Can an LLM answer spatial questions about melanoma tissue when its answers are "
                               "grounded in quantitative spatial analysis?", serif(31))], line=1.1)
 hline(s, 80, 730, 1080)
-stats = [("39,483", "spots kept by the paper's QC\n(paper: 39,481)", "Reproduced", "solid"),
+stats = [("46.7%", "of A16's spots removed by\nthe paper's QC filter", "Observed", "solid"),
          ("21 / 21", "tests pass for three\nspatial operations", "Tested · synthetic", "line"),
          ("14 / 15", "benchmark questions\nwith a reference answer", "Preliminary", "dash")]
 for i, (n, l, st, kind) in enumerate(stats):
@@ -233,22 +233,23 @@ for i, (n, l, st, kind) in enumerate(stats):
 picture(s, "cover", 1250, 100, 560, 840)
 dot(s, 1250, 954, 13)
 text(s, 1270, 950, 560, 24, [("Patient A24 · PRAME > 1.5 (provisional)", mono(16))])
-text(s, 80, 1018, 900, 24, [("Aitor · supervised by Myles Tan", mono(16))])
+text(s, 80, 1018, 900, 24, [("Aitor", mono(16))])
 
 # ================================================================ 2 · paper vs project
 s = base(2, cite="Kreuger et al. 2026, Cancer Res 86(17):4400–4413 · roderickslieker/NevusMelanomaVisium · docs/paper_worksheet/")
-topbar(s, [("The paper shows ", 0), ("where", 1), (" immune cells sit; this project builds tools to ", 0), ("measure", 1), (" it", 0)],
+topbar(s, [("The paper's spatial analyses used ", 0), ("pixels and pooled lesions", 1), ("; this project measures ", 0),
+           ("per section, in µm", 1)],
        "Kreuger et al. 2026")
-cols = [(80, "Published", "Not re-claimed", "line",
-         [("A", "More immune cells around melanoma than nevus, few inside", "IMC protein · Fig. 5A–B, 5D"),
-          ("B", "Distances measured once, in pixels, lesions pooled", "Fig. 4E"),
-          ("C", "Nevus / melanoma spot labels inferred from expression", "STdeconvolve topics, K = 15 · not public")]),
+cols = [(80, "Spatial analyses in the paper", "Not re-claimed", "line",
+         [("A", "Which spots sit next to each fibroblast type", "neighbour analysis · Fig. 4A"),
+          ("B", "Distance to the nearest melanoma spot, in pixels, lesions pooled", "Fig. 4E"),
+          ("C", "Ligand–receptor pairs between nearby spots", "SpatialDM · Supp. Fig. S7")]),
         (1020, "This project", "Method", "solid",
          [("1", "Spatial operations in µm, per patient and section", "src/space_mel/operations.py"),
           ("2", "Every operation tested against known answers", "tests/test_operations.py"),
           ("3", "Natural-language questions with reference answers", "02_spatial_operations/benchmark/")])]
 for x0, head, st, kind, rows in cols:
-    text(s, x0, 258, 500, 50, [(head, serif(40))])
+    text(s, x0, 258, 620, 50, [(head, serif(40))])
     pill(s, x0 + 820, 266, st, kind)
     hline(s, x0, 318, 820)
     y = 318
@@ -263,33 +264,57 @@ a.line.color.rgb = rgb(INK); a.line.width = Pt(2)
 a.line._get_or_add_ln().append(etree.fromstring('<a:tailEnd xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" type="triangle" w="med" len="med"/>'))
 rect(s, 80, 880, 1760, 100, fill=INK, line=None)
 text(s, 120, 880, 260, 100, [("THE CONTRIBUTION", caps(16, color=PAPER))], anchor=MSO_ANCHOR.MIDDLE)
-text(s, 400, 880, 1400, 100, [("A checkable reasoning framework — not a new biological finding.", serif(36, color=PAPER))],
+text(s, 400, 880, 1400, 100, [("What's new is the checking: tested tools and reference answers for an LLM.", serif(36, color=PAPER))],
      anchor=MSO_ANCHOR.MIDDLE)
 
-# ================================================================ 3 · data structure
-s = base(3, cite="GEO GSE298774 · Space Ranger 2.1.1 · QC thresholds: Kreuger et al. 2026, Methods · A2 excluded (no barcode file)")
-topbar(s, [("One GEO sample can hold several patients, so everything runs ", 0), ("per patient, in µm", 1)], "GSE298774 · Visium")
+# ================================================================ 3 · how distances are measured
+s = base(3, cite="Data structure and QC filter as in the multimodal-retrieval slides · src/space_mel/spatial.py · docs/datasets.md")
+topbar(s, [("Distances are measured per section, in µm from the spot grid, ", 0), ("never across sections", 1)], "GSE298774 · Visium")
 picture(s, "shared", 80, 250, 860, 520)
-legend(s, 80, 778, [("A24", "k"), ("A22", "m"), ("neither patient", "f")])
-text(s, 520, 778, 420, 24, [("· one capture area, GSM9022967", mono(17, color=DIM))])
-chain = [("Capture area", "one GEO sample · 11 hold 19 patients", "GSM9022967", "line"),
-         ("Patient / section", "unit of analysis · 18 usable", "A24", "solid"),
-         ("Tissue region", "no independent label → provisional", "PRAME > 1.5", "dash"),
-         ("Spot", "55 µm · centres 100 µm apart", "6,059 in A24", "line")]
-for i, (h4, sm, eg, kind) in enumerate(chain):
-    y = 250 + i * 130
-    col = PAPER if kind == "solid" else INK
-    rect(s, 1010, y, 830, 100, fill=INK if kind == "solid" else PAPER, dash=(kind == "dash"))
-    text(s, 1034, y + 12, 560, 46, [(h4, serif(36, color=col))])
-    text(s, 1034, y + 60, 560, 28, [(sm, S(19, color=col))])
-    text(s, 1500, y + 36, 316, 28, [(eg, mono(18, color=col))], align=PP_ALIGN.RIGHT)
-    if i < 3:
-        vline(s, 1050, y + 100, 22, INK, 1.5)
-        t = s.shapes.add_shape(MSO_SHAPE.ISOSCELES_TRIANGLE, px(1043), px(y + 120), px(14), px(10))
-        t.rotation = 180; t.fill.solid(); t.fill.fore_color.rgb = rgb(INK); t.line.fill.background(); t.shadow.inherit = False
+legend(s, 80, 778, [("B14", "k"), ("B15", "m"), ("B38_2", "l")])
+text(s, 400, 778, 540, 24, [("· three sections, one capture area (GSM9022972)", mono(17, color=DIM))])
+text(s, 1010, 252, 830, 24, [[("ERROR OF THE SCALE-FACTOR “65 ", caps(16)), ("µm", S(16, bold=True)), ("” RULE, PER CAPTURE AREA", caps(16))]])
+units = [("D20, D3 · 6.5 mm", -7.2), ("A7 · 6.5 mm", -7.1), ("A21 · 6.5 mm", -7.1), ("B13, B8 · 11 mm", 7.6),
+         ("B14, B15, B38_2 · 11 mm", 7.6), ("A16, A23 · 11 mm", 7.7), ("A22, A24 · 11 mm", 7.7), ("B4 · 11 mm", 7.7),
+         ("A34 · 11 mm", 7.8), ("B1, B38ex · 11 mm", 7.8), ("A17 · 11 mm", 7.9)]
+cd = CategoryChartData()
+cd.categories = [u[0] for u in units]
+cd.add_series("error of the 65 µm rule (%)", [u[1] for u in units])
+ch = s.shapes.add_chart(XL_CHART_TYPE.BAR_CLUSTERED, px(1000), px(280), px(850), px(470), cd).chart
+ch.has_title = False
+ch.has_legend = False
+ch.font.name, ch.font.size = MONO, Pt(8)
+ch.font.color.rgb = rgb(INK)
+plot = ch.plots[0]
+plot.gap_width = 70
+plot.has_data_labels = True
+plot.data_labels.number_format, plot.data_labels.number_format_is_linked = '+0.0"%";-0.0"%"', False
+plot.data_labels.position = XL_LABEL_POSITION.OUTSIDE_END
+ser = plot.series[0]
+ser.invert_if_negative = False
+ser.format.fill.solid()
+ser.format.fill.fore_color.rgb = rgb(INK)
+for k, (_, v) in enumerate(units):
+    if v > 0:
+        pt = ser.points[k]
+        pt.format.fill.solid()
+        pt.format.fill.fore_color.rgb = rgb("8C90E4")
+for dpt in ser._element.findall(qn("c:dPt")):
+    inv = dpt.find(qn("c:invertIfNegative"))
+    if inv is None:
+        inv = etree.SubElement(dpt, qn("c:invertIfNegative"))
+        dpt.remove(inv); dpt.insert(1, inv)
+    inv.set("val", "0")
+ch.category_axis.reverse_order = True
+ch.category_axis.tick_label_position = XL_TICK_LABEL_POSITION.LOW
+ch.category_axis.format.line.color.rgb = rgb(INK)
+ch.value_axis.minimum_scale, ch.value_axis.maximum_scale = -10, 10
+ch.value_axis.visible = False
+ch.value_axis.has_major_gridlines = False
 hline(s, 1010, 790, 830)
-for i, (n, l) in enumerate([("> 500", "genes per spot,\n< 30% MT (paper QC)"), ("µm", "from the 100 µm spot grid,\nnever pixels"),
-                            ("0", "links between\ndifferent sections")]):
+for i, (n, l) in enumerate([("±8%", "distance error avoided\nby not using the 65 µm rule"),
+                            ("100 µm", "between touching spots:\nthe reference for µm"),
+                            ("0", "spots ever linked\nacross sections")]):
     x = 1010 + i * 277 + (20 if i else 0)
     if i:
         vline(s, 1010 + i * 277, 800, 140)
@@ -298,8 +323,8 @@ for i, (n, l) in enumerate([("> 500", "genes per spot,\n< 30% MT (paper QC)"), (
 
 # ================================================================ 4 · QC
 s = base(4, cite="Maps: solid = removed (≤ 500 genes), faint = kept · notebooks/03_explore_GSE298774.ipynb · cluster names provisional")
-topbar(s, [("QC reproduces the paper's count, but removes ", 0), ("low‑RNA tissue", 1), (", not the lesion", 0)], "Reproduced", "solid")
-text(s, 80, 250, 620, 24, [("% SPOTS KEPT · 18 PATIENTS", caps(16))])
+topbar(s, [("The paper's QC removes ", 0), ("low‑RNA tissue", 1), (", not the lesion: up to half a section", 0)], "Observed", "solid")
+text(s, 80, 250, 620, 24, [("% SPOTS KEPT · 18 SECTIONS", caps(16))])
 rows = [("B38ex", 1861, 1855), ("B1", 3952, 3931), ("A24", 6165, 6059), ("D20", 1089, 1056), ("A22", 4326, 4081),
         ("A21", 2260, 1934), ("B4", 6415, 5419), ("D3", 1501, 1208), ("A23", 2782, 2143), ("A16", 5195, 2768),
         ("B38_2", 2100, 1094), ("A7", 2892, 1289), ("B13", 3614, 1536), ("A34", 4151, 1631), ("A17", 2274, 863),
@@ -344,7 +369,7 @@ for frac, fill, lab, col in [(0.63, INK, "63% stay together", PAPER), (0.25, "B6
     rect(s, bx, 772, bw * frac, 40, fill=fill, lw=1)
     text(s, bx + 12, 772, bw * frac - 14, 40, [(lab, mono(16, color=col))], anchor=MSO_ANCHOR.MIDDLE)
     bx += bw * frac
-abc(s, [("Tested", "Paper thresholds, all 18 patients"), ("Shows", "39,483 kept vs 39,481; melanocytic clusters lose 0%"),
+abc(s, [("Tested", "Which spots fail, and where, in 18 sections"), ("Shows", "Removed: blood-, fat-, dermis-like; melanocytic clusters lose 0%"),
         ("Open", "500 genes may be too strict for dermis, fat, blood")])
 
 # ================================================================ 5 · operations
@@ -450,8 +475,8 @@ abc(s, [("Tested", "Operations vs an independent calculation"), ("Shows", "Exact
 
 # ================================================================ 8 · limitations, next, ask
 s = base(8, cite="Status note: docs/status_note_week2.md · all code and figures in spatial-reasoning/")
-topbar(s, [("The main blocker is ", 0), ("ground truth for regions", 1)], "Limitations · next step")
-lims = [("No independent nevus / melanoma label per spot", "regions are expression thresholds · B15 waits"),
+topbar(s, [("Two risks for distance questions: ", 0), ("no region labels", 1), (" and ", 0), ("QC holes", 1)], "Limitations · next step")
+lims = [("No independent nevus / melanoma label per spot", "same blocker as multimodal retrieval · B15 waits"),
         ("The 500-gene threshold leaves holes around the lesion", "A16 loses 47% · B8, B14, A17 keep < 900 spots"),
         ("Signature enrichment not implemented yet", "“is gene X higher near region Y?”"),
         ("Real-data examples cover one patient only", "A24, one threshold per gene")]
@@ -463,20 +488,26 @@ for i, (h4, hint) in enumerate(lims):
     text(s, 142, y + 66, 786, 24, [(hint, mono(16, color=DIM))])
     hline(s, 80, y + 112, 848, FAINT, 1)
 rect(s, 992, 250, 848, 214, fill=PAPER)
-text(s, 1022, 274, 780, 24, [("MOST IMPORTANT NEXT STEP", caps(16))])
-text(s, 1022, 306, 790, 60, [("Independent region labels for A24", serif(46))])
-text(s, 1022, 374, 790, 70, [("From a pathologist on the H&E, or from the authors. Unblocks B15 and any tumour / nevus validation.", S(21))],
-     line=1.05)
+text(s, 1022, 274, 780, 24, [("MOST IMPORTANT NEXT STEP · SHARED", caps(16))])
+text(s, 1022, 302, 790, 110, [("One set of region labels for A24, used by both projects", serif(42))], line=0.98)
+text(s, 1022, 412, 790, 50, [("The labels requested for multimodal retrieval would also define the benchmark's tumour and nevus regions, "
+                               "and unblock B15.", S(19))], line=1.0)
 for i, (lab, t) in enumerate([("then 02", "Gentler or per-patient QC threshold"), ("then 03", "Benchmark on a second patient (B4)"),
                               ("later", "First LLM test: does it pick the right operation?")]):
     x = 992 + i * 288
     hline(s, x, 486, 272)
     text(s, x, 496, 272, 22, [(lab, mono(15))])
     text(s, x, 520, 272, 60, [(t, S(19))], line=1.0)
+rect(s, 992, 606, 848, 200, fill=PAPER, dash=True)
+text(s, 1018, 626, 400, 24, [("ALSO THIS WEEK", caps(16))])
+pill(s, 1816, 618, "Setup only", "dash")
+text(s, 1018, 660, 800, 44, [("SNMF installed, ready to compare with STdeconvolve", serif(30))])
+text(s, 1018, 706, 800, 84, [("The group's spatially regularised deconvolution, in its own R environment with GPU support. "
+                               "Tested on its example data; not yet run on GSE298774.", S(19))], line=1.0)
 rect(s, 80, 846, 1760, 136, fill=INK, line=None)
 text(s, 104, 866, 240, 22, [("Feedback needed", mono(15, color=PAPER))])
 text(s, 104, 890, 240, 84, [("Three decisions", serif(36, color=PAPER))], line=0.95)
-for i, (lab, q) in enumerate([("Q1 · labels", "Who could give per-spot ground truth: the authors or a pathologist?"),
+for i, (lab, q) in enumerate([("Q1 · labels", "Can one label request cover both projects, starting with A24?"),
                               ("Q2 · QC", "Relax 500 genes for low-RNA tissue, or drop B8, B14, A17?"),
                               ("Q3 · benchmark", "Is this format right before adding more questions?")]):
     x = 360 + i * 493
